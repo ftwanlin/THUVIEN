@@ -94,5 +94,29 @@ namespace THUVIEN
                 f.Show();
             }
         }
+
+        private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmNhanVien));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmNhanVien f = new frmNhanVien();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmTaiKhoan));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmTaiKhoan f = new frmTaiKhoan();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

@@ -376,11 +376,13 @@ namespace THUVIEN
             // 
             this.gcDocGia.DataSource = this.bdsDocGia;
             this.gcDocGia.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gcDocGia.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gcDocGia.Location = new System.Drawing.Point(0, 30);
             this.gcDocGia.MainView = this.gridView1;
+            this.gcDocGia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gcDocGia.MenuManager = this.barManager1;
             this.gcDocGia.Name = "gcDocGia";
-            this.gcDocGia.Size = new System.Drawing.Size(1033, 280);
+            this.gcDocGia.Size = new System.Drawing.Size(1033, 350);
             this.gcDocGia.TabIndex = 5;
             this.gcDocGia.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -397,6 +399,7 @@ namespace THUVIEN
             this.colSDT,
             this.colEMAIL,
             this.colDIACHI});
+            this.gridView1.DetailHeight = 437;
             this.gridView1.GridControl = this.gcDocGia;
             this.gridView1.Name = "gridView1";
             // 
@@ -404,108 +407,108 @@ namespace THUVIEN
             // 
             this.colMADOCGIA.Caption = "MÃ ĐỘC GIẢ";
             this.colMADOCGIA.FieldName = "MADOCGIA";
-            this.colMADOCGIA.MinWidth = 25;
+            this.colMADOCGIA.MinWidth = 31;
             this.colMADOCGIA.Name = "colMADOCGIA";
             this.colMADOCGIA.OptionsColumn.AllowEdit = false;
             this.colMADOCGIA.OptionsColumn.AllowFocus = false;
             this.colMADOCGIA.Visible = true;
             this.colMADOCGIA.VisibleIndex = 0;
-            this.colMADOCGIA.Width = 94;
+            this.colMADOCGIA.Width = 117;
             // 
             // colMATHE
             // 
             this.colMATHE.Caption = "MÃ THẺ";
             this.colMATHE.FieldName = "MATHE";
-            this.colMATHE.MinWidth = 25;
+            this.colMATHE.MinWidth = 31;
             this.colMATHE.Name = "colMATHE";
             this.colMATHE.OptionsColumn.AllowEdit = false;
             this.colMATHE.OptionsColumn.AllowFocus = false;
             this.colMATHE.Visible = true;
             this.colMATHE.VisibleIndex = 1;
-            this.colMATHE.Width = 94;
+            this.colMATHE.Width = 117;
             // 
             // colTENDOCGIA
             // 
             this.colTENDOCGIA.Caption = "TÊN ĐỘC GIẢ";
             this.colTENDOCGIA.FieldName = "TENDOCGIA";
-            this.colTENDOCGIA.MinWidth = 25;
+            this.colTENDOCGIA.MinWidth = 31;
             this.colTENDOCGIA.Name = "colTENDOCGIA";
             this.colTENDOCGIA.OptionsColumn.AllowEdit = false;
             this.colTENDOCGIA.OptionsColumn.AllowFocus = false;
             this.colTENDOCGIA.Visible = true;
             this.colTENDOCGIA.VisibleIndex = 2;
-            this.colTENDOCGIA.Width = 94;
+            this.colTENDOCGIA.Width = 117;
             // 
             // colNGAYSINH
             // 
             this.colNGAYSINH.Caption = "NGÀY SINH";
             this.colNGAYSINH.FieldName = "NGAYSINH";
-            this.colNGAYSINH.MinWidth = 25;
+            this.colNGAYSINH.MinWidth = 31;
             this.colNGAYSINH.Name = "colNGAYSINH";
             this.colNGAYSINH.OptionsColumn.AllowEdit = false;
             this.colNGAYSINH.OptionsColumn.AllowFocus = false;
             this.colNGAYSINH.Visible = true;
             this.colNGAYSINH.VisibleIndex = 3;
-            this.colNGAYSINH.Width = 94;
+            this.colNGAYSINH.Width = 117;
             // 
             // colGIOITINH
             // 
             this.colGIOITINH.Caption = "GIỚI TÍNH";
             this.colGIOITINH.FieldName = "GIOITINH";
-            this.colGIOITINH.MinWidth = 25;
+            this.colGIOITINH.MinWidth = 31;
             this.colGIOITINH.Name = "colGIOITINH";
             this.colGIOITINH.OptionsColumn.AllowEdit = false;
             this.colGIOITINH.OptionsColumn.AllowFocus = false;
             this.colGIOITINH.Visible = true;
             this.colGIOITINH.VisibleIndex = 4;
-            this.colGIOITINH.Width = 94;
+            this.colGIOITINH.Width = 117;
             // 
             // colCCCD
             // 
             this.colCCCD.FieldName = "CCCD";
-            this.colCCCD.MinWidth = 25;
+            this.colCCCD.MinWidth = 31;
             this.colCCCD.Name = "colCCCD";
             this.colCCCD.OptionsColumn.AllowEdit = false;
             this.colCCCD.OptionsColumn.AllowFocus = false;
             this.colCCCD.Visible = true;
             this.colCCCD.VisibleIndex = 5;
-            this.colCCCD.Width = 94;
+            this.colCCCD.Width = 117;
             // 
             // colSDT
             // 
             this.colSDT.Caption = "SỐ ĐIỆN THOẠI";
             this.colSDT.FieldName = "SDT";
-            this.colSDT.MinWidth = 25;
+            this.colSDT.MinWidth = 31;
             this.colSDT.Name = "colSDT";
             this.colSDT.OptionsColumn.AllowEdit = false;
             this.colSDT.OptionsColumn.AllowFocus = false;
             this.colSDT.Visible = true;
             this.colSDT.VisibleIndex = 6;
-            this.colSDT.Width = 94;
+            this.colSDT.Width = 117;
             // 
             // colEMAIL
             // 
             this.colEMAIL.Caption = "EMAIL";
             this.colEMAIL.FieldName = "EMAIL";
-            this.colEMAIL.MinWidth = 25;
+            this.colEMAIL.MinWidth = 31;
             this.colEMAIL.Name = "colEMAIL";
             this.colEMAIL.OptionsColumn.AllowEdit = false;
             this.colEMAIL.OptionsColumn.AllowFocus = false;
             this.colEMAIL.Visible = true;
             this.colEMAIL.VisibleIndex = 7;
-            this.colEMAIL.Width = 94;
+            this.colEMAIL.Width = 117;
             // 
             // colDIACHI
             // 
             this.colDIACHI.Caption = "ĐỊA CHỈ";
             this.colDIACHI.FieldName = "DIACHI";
-            this.colDIACHI.MinWidth = 25;
+            this.colDIACHI.MinWidth = 31;
             this.colDIACHI.Name = "colDIACHI";
             this.colDIACHI.OptionsColumn.AllowEdit = false;
             this.colDIACHI.OptionsColumn.AllowFocus = false;
             this.colDIACHI.Visible = true;
             this.colDIACHI.VisibleIndex = 8;
-            this.colDIACHI.Width = 94;
+            this.colDIACHI.Width = 117;
             // 
             // panelControl_DocGia
             // 
@@ -529,9 +532,9 @@ namespace THUVIEN
             this.panelControl_DocGia.Controls.Add(this.txtMaDocGia);
             this.panelControl_DocGia.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl_DocGia.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panelControl_DocGia.Location = new System.Drawing.Point(0, 310);
+            this.panelControl_DocGia.Location = new System.Drawing.Point(0, 380);
             this.panelControl_DocGia.Name = "panelControl_DocGia";
-            this.panelControl_DocGia.Size = new System.Drawing.Size(1033, 340);
+            this.panelControl_DocGia.Size = new System.Drawing.Size(1033, 270);
             this.panelControl_DocGia.TabIndex = 6;
             this.panelControl_DocGia.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
