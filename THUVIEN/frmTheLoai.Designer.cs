@@ -273,11 +273,13 @@ namespace THUVIEN
             // 
             this.gcTheLoai.DataSource = this.bdsTheLoai;
             this.gcTheLoai.Dock = System.Windows.Forms.DockStyle.Top;
+            this.gcTheLoai.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gcTheLoai.Location = new System.Drawing.Point(0, 30);
             this.gcTheLoai.MainView = this.gridView1;
+            this.gcTheLoai.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gcTheLoai.MenuManager = this.barManager1;
             this.gcTheLoai.Name = "gcTheLoai";
-            this.gcTheLoai.Size = new System.Drawing.Size(1142, 270);
+            this.gcTheLoai.Size = new System.Drawing.Size(1142, 338);
             this.gcTheLoai.TabIndex = 5;
             this.gcTheLoai.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -287,6 +289,7 @@ namespace THUVIEN
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMATHELOAI,
             this.colTENTHELOAI});
+            this.gridView1.DetailHeight = 437;
             this.gridView1.GridControl = this.gcTheLoai;
             this.gridView1.Name = "gridView1";
             // 
@@ -294,25 +297,25 @@ namespace THUVIEN
             // 
             this.colMATHELOAI.Caption = "MÃ THỂ LOẠI";
             this.colMATHELOAI.FieldName = "MATHELOAI";
-            this.colMATHELOAI.MinWidth = 25;
+            this.colMATHELOAI.MinWidth = 31;
             this.colMATHELOAI.Name = "colMATHELOAI";
             this.colMATHELOAI.OptionsColumn.AllowEdit = false;
             this.colMATHELOAI.OptionsColumn.AllowFocus = false;
             this.colMATHELOAI.Visible = true;
             this.colMATHELOAI.VisibleIndex = 0;
-            this.colMATHELOAI.Width = 347;
+            this.colMATHELOAI.Width = 434;
             // 
             // colTENTHELOAI
             // 
             this.colTENTHELOAI.Caption = "TÊN THỂ LOẠI";
             this.colTENTHELOAI.FieldName = "TENTHELOAI";
-            this.colTENTHELOAI.MinWidth = 25;
+            this.colTENTHELOAI.MinWidth = 31;
             this.colTENTHELOAI.Name = "colTENTHELOAI";
             this.colTENTHELOAI.OptionsColumn.AllowEdit = false;
             this.colTENTHELOAI.OptionsColumn.AllowFocus = false;
             this.colTENTHELOAI.Visible = true;
             this.colTENTHELOAI.VisibleIndex = 1;
-            this.colTENTHELOAI.Width = 765;
+            this.colTENTHELOAI.Width = 956;
             // 
             // panelControl_TheLoai
             // 
@@ -321,9 +324,9 @@ namespace THUVIEN
             this.panelControl_TheLoai.Controls.Add(mATHELOAILabel);
             this.panelControl_TheLoai.Controls.Add(this.txtMaTheLoai);
             this.panelControl_TheLoai.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl_TheLoai.Location = new System.Drawing.Point(0, 300);
+            this.panelControl_TheLoai.Location = new System.Drawing.Point(0, 368);
             this.panelControl_TheLoai.Name = "panelControl_TheLoai";
-            this.panelControl_TheLoai.Size = new System.Drawing.Size(1142, 320);
+            this.panelControl_TheLoai.Size = new System.Drawing.Size(1142, 252);
             this.panelControl_TheLoai.TabIndex = 10;
             // 
             // txtTenTheLoai
