@@ -23,7 +23,7 @@ namespace THUVIEN
 
         public static String mlogin = username;
 
-        public static frmQuanLySach frmChinh;
+        public static frmMain frmChinh;
 
         public static int KetNoi()
         {
@@ -113,7 +113,7 @@ namespace THUVIEN
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            frmChinh = new frmQuanLySach();
+            frmChinh = new frmMain();
             Application.Run(frmChinh);
         }
     }

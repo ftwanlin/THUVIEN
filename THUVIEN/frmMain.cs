@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace THUVIEN
 {
-    public partial class frmQuanLySach : DevExpress.XtraBars.Ribbon.RibbonForm
+    public partial class frmMain : DevExpress.XtraBars.Ribbon.RibbonForm
     {
-        public frmQuanLySach()
+        public frmMain()
         {
             InitializeComponent();
         }

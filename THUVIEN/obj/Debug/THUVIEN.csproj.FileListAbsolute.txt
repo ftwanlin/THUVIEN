@@ -183,7 +183,6 @@ C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.cspro
 C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmDocGia.resources
 C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmNhanVien.resources
 C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmNhaXuatBan.resources
-C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmQuanLySach.resources
 C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmSach.resources
 C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmTacGia.resources
 C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmTheLoai.resources
@@ -196,3 +195,4 @@ C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.cspro
 C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.exe
 C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.pdb
 C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmTaiKhoan.resources
+C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmMain.resources

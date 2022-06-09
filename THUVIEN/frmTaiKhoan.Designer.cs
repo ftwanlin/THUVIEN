@@ -236,10 +236,10 @@ namespace THUVIEN
             // 
             // panelControl_TK
             // 
+            this.panelControl_TK.Controls.Add(this.mAQUYENTextEdit);
             this.panelControl_TK.Controls.Add(mAQUYENLabel);
             this.panelControl_TK.Controls.Add(tENDANGNHAPLabel);
             this.panelControl_TK.Controls.Add(this.tENDANGNHAPTextEdit);
-            this.panelControl_TK.Controls.Add(this.mAQUYENTextEdit);
             this.panelControl_TK.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl_TK.Location = new System.Drawing.Point(0, 250);
             this.panelControl_TK.Name = "panelControl_TK";
@@ -285,8 +285,8 @@ namespace THUVIEN
             this.mAQUYENTextEdit.Name = "mAQUYENTextEdit";
             this.mAQUYENTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.mAQUYENTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.mAQUYENTextEdit.Size = new System.Drawing.Size(120, 26);
-            this.mAQUYENTextEdit.TabIndex = 3;
+            this.mAQUYENTextEdit.Size = new System.Drawing.Size(125, 26);
+            this.mAQUYENTextEdit.TabIndex = 4;
             // 
             // frmTaiKhoan
             // 
@@ -336,8 +336,8 @@ namespace THUVIEN
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.Panel panelControl_TK;
         private DevExpress.XtraEditors.TextEdit tENDANGNHAPTextEdit;
-        private DevExpress.XtraEditors.TextEdit mAQUYENTextEdit;
         private DevExpress.XtraGrid.Columns.GridColumn colMAQUYEN;
         private DevExpress.XtraGrid.Columns.GridColumn colTENDANGNHAP;
+        private DevExpress.XtraEditors.TextEdit mAQUYENTextEdit;
     }
 }
