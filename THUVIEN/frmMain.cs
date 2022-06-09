@@ -246,5 +246,17 @@ namespace THUVIEN
             ribbonPage_NhanVien.Visible = false;
             ribbonPage_SaoLuuPhucHoi.Visible = false;
         }
+
+        private void btnPhieuMuon_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmPhieuMuon));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmPhieuMuon f = new frmPhieuMuon();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

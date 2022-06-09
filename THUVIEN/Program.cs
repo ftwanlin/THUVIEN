@@ -26,6 +26,10 @@ namespace THUVIEN
         public static String mHoten;
         //public static String mlogin = username;
 
+        public static string maTheDaChon = "";
+        public static string maSachDaChon = "";
+
+
         public static frmMain frmChinh;
 
         public static int KetNoi()

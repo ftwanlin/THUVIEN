@@ -24,7 +24,8 @@ namespace THUVIEN
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            
+            txtUsername.Text = "1";
+            txtPassword.Text = "123";
         }
 
         private void btnLogin_OK_Click(object sender, EventArgs e)
