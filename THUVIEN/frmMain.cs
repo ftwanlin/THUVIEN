@@ -16,6 +16,8 @@ namespace THUVIEN
         public frmMain()
         {
             InitializeComponent();
+            btnDoiMatKhau.Enabled = false;
+            btnDangXuat.Enabled = false;
         }
         private Form CheckExists(Type ftype)
         {
@@ -173,6 +175,76 @@ namespace THUVIEN
                 Application.Restart();
                 this.Hide();
             }
+        }
+
+        private void btnDangNhap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmLogin));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmLogin f = new frmLogin();
+                //f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            Program.username = "";
+            Program.mHoten = "";
+            Program.mGroup = "";
+            btnDoiMatKhau.Enabled = false;
+            btnDangXuat.Enabled = false;
+            btnDangNhap.Enabled = true;
+            ribbonPage_MuonSach.Visible = false;
+            ribbonPage_QuanLySach.Visible = false;
+            ribbonPage_DocGia.Visible = false;
+            ribbonPage_NhanVien.Visible = false;
+            ribbonPage_SaoLuuPhucHoi.Visible = false;
+        }
+
+        public void HienThiMenu()
+        {
+            btnDangXuat.Enabled = true;
+            btnDoiMatKhau.Enabled = true;
+            btnDangNhap.Enabled = false;
+            ribbonPage_MuonSach.Visible = true;
+            ribbonPage_QuanLySach.Visible = true;
+            ribbonPage_DocGia.Visible = true;
+            ribbonPage_NhanVien.Visible = true;
+            ribbonPage_SaoLuuPhucHoi.Visible = true;
+
+            if (Program.mGroup == "NHANVIEN")
+            {
+                ribbonPage_DocGia.Visible = false;
+                ribbonPage_SaoLuuPhucHoi.Visible = false;
+            }
+        }
+
+        private void btnDangXuat_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            foreach (Form frm in this.MdiChildren)
+            {
+                if (!frm.Focused)
+                {
+                    frm.Visible = false;
+                    frm.Dispose();
+                }
+            }
+
+            Program.username = "";
+            Program.mHoten = "";
+            Program.mGroup = "";
+            //Program.frmChinh.HienThiMenu();
+            btnDoiMatKhau.Enabled = false;
+            btnDangXuat.Enabled = false;
+            btnDangNhap.Enabled = true;
+            ribbonPage_MuonSach.Visible = false;
+            ribbonPage_QuanLySach.Visible = false;
+            ribbonPage_DocGia.Visible = false;
+            ribbonPage_NhanVien.Visible = false;
+            ribbonPage_SaoLuuPhucHoi.Visible = false;
         }
     }
 }

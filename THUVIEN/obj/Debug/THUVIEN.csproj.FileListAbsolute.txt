@@ -197,3 +197,4 @@ C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.pdb
 C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmTaiKhoan.resources
 C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmMain.resources
 C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmTaoTaiKhoan.resources
+C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmLogin.resources

@@ -160,9 +160,9 @@ namespace THUVIEN
             String trangThai = (((DataRowView)bdsNV[bdsNV.Position])["TRANGTHAI"].ToString());
             if (trangThai == "True")
             {
-                frmTaoTaiKhoan ccn = new frmTaoTaiKhoan();
-                //ccn.data = new frmTaoTaiKhoan.getDATA(getDATA);
-                ccn.ShowDialog();
+                frmTaoTaiKhoan ttk = new frmTaoTaiKhoan();
+                ttk.data = new frmTaoTaiKhoan.getDATA(getDATA);
+                ttk.ShowDialog();
             }
             else
             {

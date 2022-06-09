@@ -18,13 +18,13 @@ namespace THUVIEN
         public static SqlDataReader myReader;
 
         public static String database = "QUANLYTHUVIEN";
-        public static String username = "sa";
-        public static String password = "sa";
+        public static String username = "";
+        public static String password = "";
 
-        //public static String mlogin;
+        public static String mlogin;
         public static String mGroup;
         public static String mHoten;
-        public static String mlogin = username;
+        //public static String mlogin = username;
 
         public static frmMain frmChinh;
 
