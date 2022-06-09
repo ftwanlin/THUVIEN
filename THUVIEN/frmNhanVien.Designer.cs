@@ -47,6 +47,7 @@ namespace THUVIEN
             this.btnLuu = new DevExpress.XtraBars.BarButtonItem();
             this.btnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
             this.btnReload = new DevExpress.XtraBars.BarButtonItem();
+            this.btnTaoTaiKhoan = new DevExpress.XtraBars.BarButtonItem();
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
@@ -213,8 +214,9 @@ namespace THUVIEN
             this.btnPhucHoi,
             this.btnReload,
             this.btnChuyenChiNhanh,
-            this.btnThoat});
-            this.barManager1.MaxItemId = 8;
+            this.btnThoat,
+            this.btnTaoTaiKhoan});
+            this.barManager1.MaxItemId = 9;
             this.barManager1.StatusBar = this.bar3;
             // 
             // bar1
@@ -229,6 +231,7 @@ namespace THUVIEN
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnLuu, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnPhucHoi, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnReload, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnTaoTaiKhoan, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThoat, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.Text = "Tools";
             // 
@@ -271,6 +274,14 @@ namespace THUVIEN
             this.btnReload.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnReload.ImageOptions.SvgImage")));
             this.btnReload.Name = "btnReload";
             this.btnReload.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnReload_ItemClick);
+            // 
+            // btnTaoTaiKhoan
+            // 
+            this.btnTaoTaiKhoan.Caption = "Tạo tài khoản";
+            this.btnTaoTaiKhoan.Id = 8;
+            this.btnTaoTaiKhoan.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnTaoTaiKhoan.ImageOptions.SvgImage")));
+            this.btnTaoTaiKhoan.Name = "btnTaoTaiKhoan";
+            this.btnTaoTaiKhoan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTaoTaiKhoan_ItemClick);
             // 
             // btnThoat
             // 
@@ -590,7 +601,7 @@ namespace THUVIEN
             // checkGioiTinh
             // 
             this.checkGioiTinh.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsNV, "GIOITINH", true));
-            this.checkGioiTinh.Location = new System.Drawing.Point(204, 228);
+            this.checkGioiTinh.Location = new System.Drawing.Point(217, 228);
             this.checkGioiTinh.Margin = new System.Windows.Forms.Padding(4);
             this.checkGioiTinh.MenuManager = this.barManager1;
             this.checkGioiTinh.Name = "checkGioiTinh";
@@ -716,5 +727,6 @@ namespace THUVIEN
         private DevExpress.XtraGrid.Columns.GridColumn colDIACHI;
         private DevExpress.XtraGrid.Columns.GridColumn colMANV;
         private DevExpress.XtraGrid.Columns.GridColumn colTRANGTHAI;
+        private DevExpress.XtraBars.BarButtonItem btnTaoTaiKhoan;
     }
 }

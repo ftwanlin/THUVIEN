@@ -155,5 +155,59 @@ namespace THUVIEN
             }
         }
 
+        private void btnTaoTaiKhoan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            String trangThai = (((DataRowView)bdsNV[bdsNV.Position])["TRANGTHAI"].ToString());
+            if (trangThai == "True")
+            {
+                frmTaoTaiKhoan ccn = new frmTaoTaiKhoan();
+                //ccn.data = new frmTaoTaiKhoan.getDATA(getDATA);
+                ccn.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Nhân viên hiện không hoạt động!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+        }
+
+        public void getDATA(String role)
+        {
+            //if (index != Program.mChiNhanh)
+            //{
+            //    String maCN = "";
+            //    if (index == 1) maCN = "TANDINH";
+            //    else if (index == 0) maCN = "BENTHANH";
+
+            //    String maNV = ((DataRowView)bdsNV[bdsNV.Position])["MANV"].ToString();
+            //    String sql = "EXEC dbo.SP_ChuyenNhanVien '" + maNV + "', '" + maCN + "', '" + maNVNew + "'";
+            //    Program.myReader = Program.ExecSqlDataReader(sql);
+            //    if (Program.myReader == null) return;
+            //    else
+            //    {
+            //        MessageBox.Show("Chuyển nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        this.nhanVienTableAdapter.Fill(this.DS.NhanVien);
+            //    }
+            //    Program.myReader.Read();
+            //    Program.myReader.Close();
+            //    Program.conn.Close();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Vui lòng chọn chi nhánh khác chi nhánh hiện tại", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+
+            String maNV = ((DataRowView)bdsNV[bdsNV.Position])["MANV"].ToString();
+            String sql = "EXEC dbo.SP_TaoTaiKhoan " + maNV;
+            Program.myReader = Program.ExecSqlDataReader(sql);
+            if (Program.myReader == null) return;
+            else
+            {
+                MessageBox.Show("Tạo tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            Program.myReader.Read();
+            Program.myReader.Close();
+            Program.conn.Close();
+        }
     }
 }

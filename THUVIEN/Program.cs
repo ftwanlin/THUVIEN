@@ -21,6 +21,9 @@ namespace THUVIEN
         public static String username = "sa";
         public static String password = "sa";
 
+        //public static String mlogin;
+        public static String mGroup;
+        public static String mHoten;
         public static String mlogin = username;
 
         public static frmMain frmChinh;
