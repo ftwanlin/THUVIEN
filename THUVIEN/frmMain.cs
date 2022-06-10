@@ -126,17 +126,16 @@ namespace THUVIEN
         private void btnSaoLuu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (Program.KetNoi() == 0) return;
-            if (MessageBox.Show("Xác nhận sao lưu phần mềm?", "Thông báo",
+            if (MessageBox.Show("Xác nhận sao lưu dữ liệu?", "Thông báo",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 string str = "USE QUANLYTHUVIEN;";
-                string str1 = "BACKUP DATABASE QUANLYTHUVIEN TO DISK = 'D:\\backupQLTV.Bak' WITH FORMAT,MEDIANAME = 'Z_SQLServerBackups',NAME = 'Full Backup of QUANLYTHUVIEN';";
+                string str1 = "BACKUP DATABASE QUANLYTHUVIEN TO DISK = 'D:\\backupQLTV.Bak' WITH FORMAT;";
                 SqlCommand cmd1 = new SqlCommand(str, Program.conn);
                 SqlCommand cmd2 = new SqlCommand(str1, Program.conn);
                 cmd1.ExecuteNonQuery();
                 cmd2.ExecuteNonQuery();
-                MessageBox.Show("Backup thành công, file backup được lưu tại địa chỉ: D:\\backupQLTV.Bak !", "Thông báo", MessageBoxButtons.OK);
-                /*con.Close();*/
+                MessageBox.Show("Backup thành công, file backup được lưu tại địa chỉ: D:\\backupQLTV.Bak!", "Thông báo", MessageBoxButtons.OK);
             }
         }
 
@@ -149,7 +148,7 @@ namespace THUVIEN
                 return;
             }
 
-            if (MessageBox.Show("Xác nhận sao lưu phần mềm?", "Thông báo",
+            if (MessageBox.Show("Xác nhận khôi phục dữ liệu?", "Thông báo",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 string str = "USE master;";
@@ -208,7 +207,7 @@ namespace THUVIEN
 
             if (Program.mGroup == "NHANVIEN")
             {
-                ribbonPage_DocGia.Visible = false;
+                ribbonPage_NhanVien.Visible = false;
                 ribbonPage_SaoLuuPhucHoi.Visible = false;
             }
         }

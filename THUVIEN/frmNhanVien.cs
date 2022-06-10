@@ -31,6 +31,7 @@ namespace THUVIEN
         private void frmNhanVien_Load(object sender, EventArgs e)
         {
             if (Program.KetNoi() == 0) return;
+            DS.EnforceConstraints = false;
             this.nHANVIENTableAdapter.Connection.ConnectionString = Program.connstr;
             this.nHANVIENTableAdapter.Fill(this.DS.NHANVIEN);
 
@@ -78,7 +79,6 @@ namespace THUVIEN
             index = bdsNV.Position;
             panelControl_NV.Enabled = true;
             bdsNV.AddNew();
-            // txtMaSach.Text = "";
             txtMaNV.Enabled = true;
 
             btnThem.Enabled = btnHieuChinh.Enabled = btnThoat.Enabled = btnReload.Enabled = false;
@@ -122,13 +122,7 @@ namespace THUVIEN
                 {
                     try
                     {
-                        //MessageBox.Show(sql);
-                        //return;
-                        //conn.ConnectionString = Program.connstr;
-                        //if (conn.State == ConnectionState.Closed) conn.Open();
-                        //SqlCommand cmd = new SqlCommand(sql, conn);
-                        //cmd.ExecuteNonQuery();
-                        //if (conn.State == ConnectionState.Open) conn.Close();
+                        MessageBox.Show(txtMaNV.Text);
                         bdsNV.EndEdit();
                         bdsNV.ResetCurrentItem();
                         this.nHANVIENTableAdapter.Connection.ConnectionString = Program.connstr;
@@ -168,34 +162,16 @@ namespace THUVIEN
 
         public void getDATA(String role)
         {
-            //if (index != Program.mChiNhanh)
-            //{
-            //    String maCN = "";
-            //    if (index == 1) maCN = "TANDINH";
-            //    else if (index == 0) maCN = "BENTHANH";
-
-            //    String maNV = ((DataRowView)bdsNV[bdsNV.Position])["MANV"].ToString();
-            //    String sql = "EXEC dbo.SP_ChuyenNhanVien '" + maNV + "', '" + maCN + "', '" + maNVNew + "'";
-            //    Program.myReader = Program.ExecSqlDataReader(sql);
-            //    if (Program.myReader == null) return;
-            //    else
-            //    {
-            //        MessageBox.Show("Chuyển nhân viên thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //        this.nhanVienTableAdapter.Fill(this.DS.NhanVien);
-            //    }
-            //    Program.myReader.Read();
-            //    Program.myReader.Close();
-            //    Program.conn.Close();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Vui lòng chọn chi nhánh khác chi nhánh hiện tại", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
+            
 
             String maNV = ((DataRowView)bdsNV[bdsNV.Position])["MANV"].ToString();
             String sql = "EXEC dbo.SP_TaoTaiKhoan '" + maNV  + "', '" + role + "'";
             Program.myReader = Program.ExecSqlDataReader(sql);
-            if (Program.myReader == null) return;
+            if (Program.myReader == null)
+            {
+                MessageBox.Show("Nhân viên đã có tài khoản!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             else
             {
                 MessageBox.Show("Tạo tài khoản thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -28,6 +28,7 @@ namespace THUVIEN
         private void frmTaiKhoan_Load(object sender, EventArgs e)
         {
             if (Program.KetNoi() == 0) return;
+            DS.EnforceConstraints = false;
             this.tAIKHOANTableAdapter.Connection.ConnectionString = Program.connstr;
             this.tAIKHOANTableAdapter.Fill(this.DS.TAIKHOAN);
 

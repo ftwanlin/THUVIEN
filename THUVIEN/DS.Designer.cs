@@ -48,9 +48,9 @@ namespace THUVIEN {
         
         private TINHTRANGDataTable tableTINHTRANG;
         
-        private global::System.Data.DataRelation relationFK_CT_PHIEUMUON_PHIEUMUON;
-        
         private global::System.Data.DataRelation relationFK__CT_PHIEUM__MASAC__38996AB5;
+        
+        private global::System.Data.DataRelation relationFK_CT_PHIEUMUON_PHIEUMUON;
         
         private global::System.Data.DataRelation relationFK_DOCGIA_THETHUVIEN;
         
@@ -58,17 +58,17 @@ namespace THUVIEN {
         
         private global::System.Data.DataRelation relationFK__PHIEUMUON__MATHE__25869641;
         
-        private global::System.Data.DataRelation relationFK__SACH__MANXB__33D4B598;
+        private global::System.Data.DataRelation relationFK__SACH__MATHELOAI__31EC6D26;
         
         private global::System.Data.DataRelation relationFK__SACH__MATACGIA__32E0915F;
         
-        private global::System.Data.DataRelation relationFK__SACH__MATHELOAI__31EC6D26;
+        private global::System.Data.DataRelation relationFK__SACH__MANXB__33D4B598;
+        
+        private global::System.Data.DataRelation relationFK_NHANVIEN_TAIKHOAN;
         
         private global::System.Data.DataRelation relationFK_QUYEN_TAIKHOAN;
         
         private global::System.Data.DataRelation relationFK_CT_PHIEUMUON_TINHTRANG;
-        
-        private global::System.Data.DataRelation relationFK__TAIKHOAN__TENDAN__3A81B327;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -480,17 +480,17 @@ namespace THUVIEN {
                     this.tableTINHTRANG.InitVars();
                 }
             }
-            this.relationFK_CT_PHIEUMUON_PHIEUMUON = this.Relations["FK_CT_PHIEUMUON_PHIEUMUON"];
             this.relationFK__CT_PHIEUM__MASAC__38996AB5 = this.Relations["FK__CT_PHIEUM__MASAC__38996AB5"];
+            this.relationFK_CT_PHIEUMUON_PHIEUMUON = this.Relations["FK_CT_PHIEUMUON_PHIEUMUON"];
             this.relationFK_DOCGIA_THETHUVIEN = this.Relations["FK_DOCGIA_THETHUVIEN"];
             this.relationFK_NHANVIEN_PHIEUMUON = this.Relations["FK_NHANVIEN_PHIEUMUON"];
             this.relationFK__PHIEUMUON__MATHE__25869641 = this.Relations["FK__PHIEUMUON__MATHE__25869641"];
-            this.relationFK__SACH__MANXB__33D4B598 = this.Relations["FK__SACH__MANXB__33D4B598"];
-            this.relationFK__SACH__MATACGIA__32E0915F = this.Relations["FK__SACH__MATACGIA__32E0915F"];
             this.relationFK__SACH__MATHELOAI__31EC6D26 = this.Relations["FK__SACH__MATHELOAI__31EC6D26"];
+            this.relationFK__SACH__MATACGIA__32E0915F = this.Relations["FK__SACH__MATACGIA__32E0915F"];
+            this.relationFK__SACH__MANXB__33D4B598 = this.Relations["FK__SACH__MANXB__33D4B598"];
+            this.relationFK_NHANVIEN_TAIKHOAN = this.Relations["FK_NHANVIEN_TAIKHOAN"];
             this.relationFK_QUYEN_TAIKHOAN = this.Relations["FK_QUYEN_TAIKHOAN"];
             this.relationFK_CT_PHIEUMUON_TINHTRANG = this.Relations["FK_CT_PHIEUMUON_TINHTRANG"];
-            this.relationFK__TAIKHOAN__TENDAN__3A81B327 = this.Relations["FK__TAIKHOAN__TENDAN__3A81B327"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -526,16 +526,16 @@ namespace THUVIEN {
             this.tableTINHTRANG = new TINHTRANGDataTable();
             base.Tables.Add(this.tableTINHTRANG);
             global::System.Data.ForeignKeyConstraint fkc;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK_CT_PHIEUMUON_PHIEUMUON", new global::System.Data.DataColumn[] {
-                        this.tablePHIEUMUON.MAPHIEUMUONColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCT_PHIEUMUON.MAPHIEUMUONColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK__CT_PHIEUM__MASAC__38996AB5", new global::System.Data.DataColumn[] {
+                        this.tableSACH.MASACHColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCT_PHIEUMUON.MASACHColumn});
             this.tableCT_PHIEUMUON.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK__CT_PHIEUM__MASAC__38996AB5", new global::System.Data.DataColumn[] {
-                        this.tableSACH.MASACHColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCT_PHIEUMUON.MASACHColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_CT_PHIEUMUON_PHIEUMUON", new global::System.Data.DataColumn[] {
+                        this.tablePHIEUMUON.MAPHIEUMUONColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCT_PHIEUMUON.MAPHIEUMUONColumn});
             this.tableCT_PHIEUMUON.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -552,7 +552,7 @@ namespace THUVIEN {
                         this.tablePHIEUMUON.MANVColumn});
             this.tablePHIEUMUON.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
-            fkc.DeleteRule = global::System.Data.Rule.Cascade;
+            fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
             fkc = new global::System.Data.ForeignKeyConstraint("FK__PHIEUMUON__MATHE__25869641", new global::System.Data.DataColumn[] {
                         this.tableTHETHUVIEN.MATHEColumn}, new global::System.Data.DataColumn[] {
@@ -561,9 +561,9 @@ namespace THUVIEN {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK__SACH__MANXB__33D4B598", new global::System.Data.DataColumn[] {
-                        this.tableNHAXUATBAN.MANXBColumn}, new global::System.Data.DataColumn[] {
-                        this.tableSACH.MANXBColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK__SACH__MATHELOAI__31EC6D26", new global::System.Data.DataColumn[] {
+                        this.tableTHELOAI.MATHELOAIColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSACH.MATHELOAIColumn});
             this.tableSACH.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
@@ -575,10 +575,17 @@ namespace THUVIEN {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            fkc = new global::System.Data.ForeignKeyConstraint("FK__SACH__MATHELOAI__31EC6D26", new global::System.Data.DataColumn[] {
-                        this.tableTHELOAI.MATHELOAIColumn}, new global::System.Data.DataColumn[] {
-                        this.tableSACH.MATHELOAIColumn});
+            fkc = new global::System.Data.ForeignKeyConstraint("FK__SACH__MANXB__33D4B598", new global::System.Data.DataColumn[] {
+                        this.tableNHAXUATBAN.MANXBColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSACH.MANXBColumn});
             this.tableSACH.Constraints.Add(fkc);
+            fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
+            fkc.DeleteRule = global::System.Data.Rule.None;
+            fkc.UpdateRule = global::System.Data.Rule.Cascade;
+            fkc = new global::System.Data.ForeignKeyConstraint("FK_NHANVIEN_TAIKHOAN", new global::System.Data.DataColumn[] {
+                        this.tableNHANVIEN.MANVColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTAIKHOAN.TENDANGNHAPColumn});
+            this.tableTAIKHOAN.Constraints.Add(fkc);
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.None;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
@@ -589,14 +596,14 @@ namespace THUVIEN {
             fkc.AcceptRejectRule = global::System.Data.AcceptRejectRule.None;
             fkc.DeleteRule = global::System.Data.Rule.Cascade;
             fkc.UpdateRule = global::System.Data.Rule.Cascade;
-            this.relationFK_CT_PHIEUMUON_PHIEUMUON = new global::System.Data.DataRelation("FK_CT_PHIEUMUON_PHIEUMUON", new global::System.Data.DataColumn[] {
-                        this.tablePHIEUMUON.MAPHIEUMUONColumn}, new global::System.Data.DataColumn[] {
-                        this.tableCT_PHIEUMUON.MAPHIEUMUONColumn}, false);
-            this.Relations.Add(this.relationFK_CT_PHIEUMUON_PHIEUMUON);
             this.relationFK__CT_PHIEUM__MASAC__38996AB5 = new global::System.Data.DataRelation("FK__CT_PHIEUM__MASAC__38996AB5", new global::System.Data.DataColumn[] {
                         this.tableSACH.MASACHColumn}, new global::System.Data.DataColumn[] {
                         this.tableCT_PHIEUMUON.MASACHColumn}, false);
             this.Relations.Add(this.relationFK__CT_PHIEUM__MASAC__38996AB5);
+            this.relationFK_CT_PHIEUMUON_PHIEUMUON = new global::System.Data.DataRelation("FK_CT_PHIEUMUON_PHIEUMUON", new global::System.Data.DataColumn[] {
+                        this.tablePHIEUMUON.MAPHIEUMUONColumn}, new global::System.Data.DataColumn[] {
+                        this.tableCT_PHIEUMUON.MAPHIEUMUONColumn}, false);
+            this.Relations.Add(this.relationFK_CT_PHIEUMUON_PHIEUMUON);
             this.relationFK_DOCGIA_THETHUVIEN = new global::System.Data.DataRelation("FK_DOCGIA_THETHUVIEN", new global::System.Data.DataColumn[] {
                         this.tableTHETHUVIEN.MATHEColumn}, new global::System.Data.DataColumn[] {
                         this.tableDOCGIA.MATHEColumn}, false);
@@ -609,18 +616,22 @@ namespace THUVIEN {
                         this.tableTHETHUVIEN.MATHEColumn}, new global::System.Data.DataColumn[] {
                         this.tablePHIEUMUON.MATHEColumn}, false);
             this.Relations.Add(this.relationFK__PHIEUMUON__MATHE__25869641);
-            this.relationFK__SACH__MANXB__33D4B598 = new global::System.Data.DataRelation("FK__SACH__MANXB__33D4B598", new global::System.Data.DataColumn[] {
-                        this.tableNHAXUATBAN.MANXBColumn}, new global::System.Data.DataColumn[] {
-                        this.tableSACH.MANXBColumn}, false);
-            this.Relations.Add(this.relationFK__SACH__MANXB__33D4B598);
-            this.relationFK__SACH__MATACGIA__32E0915F = new global::System.Data.DataRelation("FK__SACH__MATACGIA__32E0915F", new global::System.Data.DataColumn[] {
-                        this.tableTACGIA.MATACGIAColumn}, new global::System.Data.DataColumn[] {
-                        this.tableSACH.MATACGIAColumn}, false);
-            this.Relations.Add(this.relationFK__SACH__MATACGIA__32E0915F);
             this.relationFK__SACH__MATHELOAI__31EC6D26 = new global::System.Data.DataRelation("FK__SACH__MATHELOAI__31EC6D26", new global::System.Data.DataColumn[] {
                         this.tableTHELOAI.MATHELOAIColumn}, new global::System.Data.DataColumn[] {
                         this.tableSACH.MATHELOAIColumn}, false);
             this.Relations.Add(this.relationFK__SACH__MATHELOAI__31EC6D26);
+            this.relationFK__SACH__MATACGIA__32E0915F = new global::System.Data.DataRelation("FK__SACH__MATACGIA__32E0915F", new global::System.Data.DataColumn[] {
+                        this.tableTACGIA.MATACGIAColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSACH.MATACGIAColumn}, false);
+            this.Relations.Add(this.relationFK__SACH__MATACGIA__32E0915F);
+            this.relationFK__SACH__MANXB__33D4B598 = new global::System.Data.DataRelation("FK__SACH__MANXB__33D4B598", new global::System.Data.DataColumn[] {
+                        this.tableNHAXUATBAN.MANXBColumn}, new global::System.Data.DataColumn[] {
+                        this.tableSACH.MANXBColumn}, false);
+            this.Relations.Add(this.relationFK__SACH__MANXB__33D4B598);
+            this.relationFK_NHANVIEN_TAIKHOAN = new global::System.Data.DataRelation("FK_NHANVIEN_TAIKHOAN", new global::System.Data.DataColumn[] {
+                        this.tableNHANVIEN.MANVColumn}, new global::System.Data.DataColumn[] {
+                        this.tableTAIKHOAN.TENDANGNHAPColumn}, false);
+            this.Relations.Add(this.relationFK_NHANVIEN_TAIKHOAN);
             this.relationFK_QUYEN_TAIKHOAN = new global::System.Data.DataRelation("FK_QUYEN_TAIKHOAN", new global::System.Data.DataColumn[] {
                         this.tableQUYEN.MAQUYENColumn}, new global::System.Data.DataColumn[] {
                         this.tableTAIKHOAN.MAQUYENColumn}, false);
@@ -629,10 +640,6 @@ namespace THUVIEN {
                         this.tableTINHTRANG.MATINHTRANGColumn}, new global::System.Data.DataColumn[] {
                         this.tableCT_PHIEUMUON.MATINHTRANGColumn}, false);
             this.Relations.Add(this.relationFK_CT_PHIEUMUON_TINHTRANG);
-            this.relationFK__TAIKHOAN__TENDAN__3A81B327 = new global::System.Data.DataRelation("FK__TAIKHOAN__TENDAN__3A81B327", new global::System.Data.DataColumn[] {
-                        this.tableNHANVIEN.MANVColumn}, new global::System.Data.DataColumn[] {
-                        this.tableTAIKHOAN.TENDANGNHAPColumn}, false);
-            this.Relations.Add(this.relationFK__TAIKHOAN__TENDAN__3A81B327);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1755,7 +1762,6 @@ namespace THUVIEN {
                 this.columnEMAIL.MaxLength = 50;
                 this.columnDIACHI.MaxLength = 100;
                 this.columnMANV.AllowDBNull = false;
-                this.columnMANV.ReadOnly = true;
                 this.columnMANV.Unique = true;
                 this.columnMANV.MaxLength = 10;
             }
@@ -2677,8 +2683,6 @@ namespace THUVIEN {
                 base.Columns.Add(this.columnTENQUYEN);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnMAQUYEN}, true));
-                this.columnMAQUYEN.AutoIncrementSeed = -1;
-                this.columnMAQUYEN.AutoIncrementStep = -1;
                 this.columnMAQUYEN.AllowDBNull = false;
                 this.columnMAQUYEN.ReadOnly = true;
                 this.columnMAQUYEN.Unique = true;
@@ -3617,13 +3621,13 @@ namespace THUVIEN {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TAIKHOANRow AddTAIKHOANRow(NHANVIENRow parentNHANVIENRowByFK__TAIKHOAN__TENDAN__3A81B327, QUYENRow parentQUYENRowByFK_QUYEN_TAIKHOAN) {
+            public TAIKHOANRow AddTAIKHOANRow(NHANVIENRow parentNHANVIENRowByFK_NHANVIEN_TAIKHOAN, QUYENRow parentQUYENRowByFK_QUYEN_TAIKHOAN) {
                 TAIKHOANRow rowTAIKHOANRow = ((TAIKHOANRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null};
-                if ((parentNHANVIENRowByFK__TAIKHOAN__TENDAN__3A81B327 != null)) {
-                    columnValuesArray[0] = parentNHANVIENRowByFK__TAIKHOAN__TENDAN__3A81B327[7];
+                if ((parentNHANVIENRowByFK_NHANVIEN_TAIKHOAN != null)) {
+                    columnValuesArray[0] = parentNHANVIENRowByFK_NHANVIEN_TAIKHOAN[7];
                 }
                 if ((parentQUYENRowByFK_QUYEN_TAIKHOAN != null)) {
                     columnValuesArray[1] = parentQUYENRowByFK_QUYEN_TAIKHOAN[0];
@@ -3673,6 +3677,7 @@ namespace THUVIEN {
                 this.columnTENDANGNHAP.AllowDBNull = false;
                 this.columnTENDANGNHAP.Unique = true;
                 this.columnTENDANGNHAP.MaxLength = 10;
+                this.columnMAQUYEN.AllowDBNull = false;
                 this.columnMAQUYEN.MaxLength = 10;
             }
             
@@ -4730,23 +4735,23 @@ namespace THUVIEN {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PHIEUMUONRow PHIEUMUONRow {
-                get {
-                    return ((PHIEUMUONRow)(this.GetParentRow(this.Table.ParentRelations["FK_CT_PHIEUMUON_PHIEUMUON"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK_CT_PHIEUMUON_PHIEUMUON"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public SACHRow SACHRow {
                 get {
                     return ((SACHRow)(this.GetParentRow(this.Table.ParentRelations["FK__CT_PHIEUM__MASAC__38996AB5"])));
                 }
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK__CT_PHIEUM__MASAC__38996AB5"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public PHIEUMUONRow PHIEUMUONRow {
+                get {
+                    return ((PHIEUMUONRow)(this.GetParentRow(this.Table.ParentRelations["FK_CT_PHIEUMUON_PHIEUMUON"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_CT_PHIEUMUON_PHIEUMUON"]);
                 }
             }
             
@@ -5293,23 +5298,23 @@ namespace THUVIEN {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public TAIKHOANRow[] GetTAIKHOANRows() {
+                if ((this.Table.ChildRelations["FK_NHANVIEN_TAIKHOAN"] == null)) {
+                    return new TAIKHOANRow[0];
+                }
+                else {
+                    return ((TAIKHOANRow[])(base.GetChildRows(this.Table.ChildRelations["FK_NHANVIEN_TAIKHOAN"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public PHIEUMUONRow[] GetPHIEUMUONRows() {
                 if ((this.Table.ChildRelations["FK_NHANVIEN_PHIEUMUON"] == null)) {
                     return new PHIEUMUONRow[0];
                 }
                 else {
                     return ((PHIEUMUONRow[])(base.GetChildRows(this.Table.ChildRelations["FK_NHANVIEN_PHIEUMUON"])));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public TAIKHOANRow[] GetTAIKHOANRows() {
-                if ((this.Table.ChildRelations["FK__TAIKHOAN__TENDAN__3A81B327"] == null)) {
-                    return new TAIKHOANRow[0];
-                }
-                else {
-                    return ((TAIKHOANRow[])(base.GetChildRows(this.Table.ChildRelations["FK__TAIKHOAN__TENDAN__3A81B327"])));
                 }
             }
         }
@@ -5837,12 +5842,12 @@ namespace THUVIEN {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public NHAXUATBANRow NHAXUATBANRow {
+            public THELOAIRow THELOAIRow {
                 get {
-                    return ((NHAXUATBANRow)(this.GetParentRow(this.Table.ParentRelations["FK__SACH__MANXB__33D4B598"])));
+                    return ((THELOAIRow)(this.GetParentRow(this.Table.ParentRelations["FK__SACH__MATHELOAI__31EC6D26"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__SACH__MANXB__33D4B598"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__SACH__MATHELOAI__31EC6D26"]);
                 }
             }
             
@@ -5859,12 +5864,12 @@ namespace THUVIEN {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public THELOAIRow THELOAIRow {
+            public NHAXUATBANRow NHAXUATBANRow {
                 get {
-                    return ((THELOAIRow)(this.GetParentRow(this.Table.ParentRelations["FK__SACH__MATHELOAI__31EC6D26"])));
+                    return ((NHAXUATBANRow)(this.GetParentRow(this.Table.ParentRelations["FK__SACH__MANXB__33D4B598"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__SACH__MATHELOAI__31EC6D26"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__SACH__MANXB__33D4B598"]);
                 }
             }
             
@@ -6086,15 +6091,21 @@ namespace THUVIEN {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string MAQUYEN {
                 get {
-                    try {
-                        return ((string)(this[this.tableTAIKHOAN.MAQUYENColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'MAQUYEN\' in table \'TAIKHOAN\' is DBNull.", e);
-                    }
+                    return ((string)(this[this.tableTAIKHOAN.MAQUYENColumn]));
                 }
                 set {
                     this[this.tableTAIKHOAN.MAQUYENColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public NHANVIENRow NHANVIENRow {
+                get {
+                    return ((NHANVIENRow)(this.GetParentRow(this.Table.ParentRelations["FK_NHANVIEN_TAIKHOAN"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["FK_NHANVIEN_TAIKHOAN"]);
                 }
             }
             
@@ -6107,29 +6118,6 @@ namespace THUVIEN {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["FK_QUYEN_TAIKHOAN"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public NHANVIENRow NHANVIENRow {
-                get {
-                    return ((NHANVIENRow)(this.GetParentRow(this.Table.ParentRelations["FK__TAIKHOAN__TENDAN__3A81B327"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__TAIKHOAN__TENDAN__3A81B327"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsMAQUYENNull() {
-                return this.IsNull(this.tableTAIKHOAN.MAQUYENColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetMAQUYENNull() {
-                this[this.tableTAIKHOAN.MAQUYENColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -10266,17 +10254,21 @@ SELECT MATACGIA, TENTACGIA, TIEUSU FROM TACGIA WHERE (MATACGIA = @MATACGIA)";
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [TAIKHOAN] WHERE (([TENDANGNHAP] = @Original_TENDANGNHAP))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [TAIKHOAN] WHERE (([TENDANGNHAP] = @Original_TENDANGNHAP) AND ([MAQUY" +
+                "EN] = @Original_MAQUYEN))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TENDANGNHAP", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TENDANGNHAP", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MAQUYEN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MAQUYEN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE [TAIKHOAN] SET [TENDANGNHAP] = @TENDANGNHAP WHERE (([TENDANGNHAP] = @Origi" +
-                "nal_TENDANGNHAP));\r\nSELECT TENDANGNHAP FROM TAIKHOAN WHERE (TENDANGNHAP = @TENDA" +
-                "NGNHAP)";
+            this._adapter.UpdateCommand.CommandText = "UPDATE [TAIKHOAN] SET [TENDANGNHAP] = @TENDANGNHAP, [MAQUYEN] = @MAQUYEN WHERE ((" +
+                "[TENDANGNHAP] = @Original_TENDANGNHAP) AND ([MAQUYEN] = @Original_MAQUYEN));\r\nSE" +
+                "LECT TENDANGNHAP, MAQUYEN FROM TAIKHOAN WHERE (TENDANGNHAP = @TENDANGNHAP)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TENDANGNHAP", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TENDANGNHAP", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@MAQUYEN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MAQUYEN", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_TENDANGNHAP", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TENDANGNHAP", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_MAQUYEN", global::System.Data.SqlDbType.Char, 0, global::System.Data.ParameterDirection.Input, 0, 0, "MAQUYEN", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10292,7 +10284,7 @@ SELECT MATACGIA, TENTACGIA, TIEUSU FROM TACGIA WHERE (MATACGIA = @MATACGIA)";
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT TENDANGNHAP FROM TAIKHOAN";
+            this._commandCollection[0].CommandText = "SELECT TENDANGNHAP, MAQUYEN FROM TAIKHOAN";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
