@@ -103,6 +103,11 @@ namespace THUVIEN
 
         private void btnLuu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (deHanSuDung.DateTime <= deNgayCap.DateTime)
+            {
+                MessageBox.Show("Hạn sử dụng phải lớn hơn ngày cấp!");
+                return;
+            }
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
                 if (Program.KetNoi() == 0) return;
@@ -153,6 +158,21 @@ namespace THUVIEN
                         if (conn.State == ConnectionState.Open) conn.Close();
                     }
                 }
+            }
+        }
+
+        private void deHanSuDung_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(deHanSuDung.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(deHanSuDung, "Hạn sử dụng không được để trống");
+                deHanSuDung.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(deHanSuDung, "");
             }
         }
     }

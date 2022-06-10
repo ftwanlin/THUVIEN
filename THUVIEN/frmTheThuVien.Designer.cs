@@ -30,10 +30,10 @@ namespace THUVIEN
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTheThuVien));
             System.Windows.Forms.Label mATHELabel;
             System.Windows.Forms.Label nGAYCAPLabel;
             System.Windows.Forms.Label hSDLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTheThuVien));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -53,17 +53,18 @@ namespace THUVIEN
             this.bdsTheThuVien = new System.Windows.Forms.BindingSource(this.components);
             this.tHETHUVIENTableAdapter = new THUVIEN.QUANLYTHUVIENDataSetTableAdapters.THETHUVIENTableAdapter();
             this.tableAdapterManager = new THUVIEN.QUANLYTHUVIENDataSetTableAdapters.TableAdapterManager();
+            this.dOCGIATableAdapter = new THUVIEN.QUANLYTHUVIENDataSetTableAdapters.DOCGIATableAdapter();
             this.gcTheThuVien = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.panelControl_TTV = new System.Windows.Forms.Panel();
             this.colMATHE = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNGAYCAP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colHSD = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.txtMaThe = new DevExpress.XtraEditors.TextEdit();
-            this.deNgayCap = new DevExpress.XtraEditors.DateEdit();
+            this.panelControl_TTV = new System.Windows.Forms.Panel();
             this.deHanSuDung = new DevExpress.XtraEditors.DateEdit();
+            this.deNgayCap = new DevExpress.XtraEditors.DateEdit();
+            this.txtMaThe = new DevExpress.XtraEditors.TextEdit();
             this.bdsDocGia = new System.Windows.Forms.BindingSource(this.components);
-            this.dOCGIATableAdapter = new THUVIEN.QUANLYTHUVIENDataSetTableAdapters.DOCGIATableAdapter();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             mATHELabel = new System.Windows.Forms.Label();
             nGAYCAPLabel = new System.Windows.Forms.Label();
             hSDLabel = new System.Windows.Forms.Label();
@@ -73,13 +74,44 @@ namespace THUVIEN
             ((System.ComponentModel.ISupportInitialize)(this.gcTheThuVien)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panelControl_TTV.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaThe.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deNgayCap.Properties.CalendarTimeProperties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deNgayCap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deHanSuDung.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deHanSuDung.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deNgayCap.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deNgayCap.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaThe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDocGia)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
+            // 
+            // mATHELabel
+            // 
+            mATHELabel.AutoSize = true;
+            mATHELabel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mATHELabel.Location = new System.Drawing.Point(53, 58);
+            mATHELabel.Name = "mATHELabel";
+            mATHELabel.Size = new System.Drawing.Size(75, 19);
+            mATHELabel.TabIndex = 0;
+            mATHELabel.Text = "MÃ THẺ:";
+            // 
+            // nGAYCAPLabel
+            // 
+            nGAYCAPLabel.AutoSize = true;
+            nGAYCAPLabel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nGAYCAPLabel.Location = new System.Drawing.Point(53, 131);
+            nGAYCAPLabel.Name = "nGAYCAPLabel";
+            nGAYCAPLabel.Size = new System.Drawing.Size(95, 19);
+            nGAYCAPLabel.TabIndex = 2;
+            nGAYCAPLabel.Text = "NGÀY CẤP:";
+            // 
+            // hSDLabel
+            // 
+            hSDLabel.AutoSize = true;
+            hSDLabel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            hSDLabel.Location = new System.Drawing.Point(53, 190);
+            hSDLabel.Name = "hSDLabel";
+            hSDLabel.Size = new System.Drawing.Size(127, 19);
+            hSDLabel.TabIndex = 4;
+            hSDLabel.Text = "HẠN SỬ DỤNG:";
             // 
             // barManager1
             // 
@@ -255,6 +287,10 @@ namespace THUVIEN
             this.tableAdapterManager.TINHTRANGTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = THUVIEN.QUANLYTHUVIENDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
+            // dOCGIATableAdapter
+            // 
+            this.dOCGIATableAdapter.ClearBeforeFill = true;
+            // 
             // gcTheThuVien
             // 
             this.gcTheThuVien.DataSource = this.bdsTheThuVien;
@@ -276,20 +312,6 @@ namespace THUVIEN
             this.colHSD});
             this.gridView1.GridControl = this.gcTheThuVien;
             this.gridView1.Name = "gridView1";
-            // 
-            // panelControl_TTV
-            // 
-            this.panelControl_TTV.Controls.Add(hSDLabel);
-            this.panelControl_TTV.Controls.Add(this.deHanSuDung);
-            this.panelControl_TTV.Controls.Add(nGAYCAPLabel);
-            this.panelControl_TTV.Controls.Add(this.deNgayCap);
-            this.panelControl_TTV.Controls.Add(mATHELabel);
-            this.panelControl_TTV.Controls.Add(this.txtMaThe);
-            this.panelControl_TTV.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelControl_TTV.Location = new System.Drawing.Point(0, 308);
-            this.panelControl_TTV.Name = "panelControl_TTV";
-            this.panelControl_TTV.Size = new System.Drawing.Size(1138, 350);
-            this.panelControl_TTV.TabIndex = 6;
             // 
             // colMATHE
             // 
@@ -327,36 +349,36 @@ namespace THUVIEN
             this.colHSD.VisibleIndex = 2;
             this.colHSD.Width = 94;
             // 
-            // mATHELabel
+            // panelControl_TTV
             // 
-            mATHELabel.AutoSize = true;
-            mATHELabel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mATHELabel.Location = new System.Drawing.Point(53, 58);
-            mATHELabel.Name = "mATHELabel";
-            mATHELabel.Size = new System.Drawing.Size(75, 19);
-            mATHELabel.TabIndex = 0;
-            mATHELabel.Text = "MÃ THẺ:";
+            this.panelControl_TTV.Controls.Add(hSDLabel);
+            this.panelControl_TTV.Controls.Add(this.deHanSuDung);
+            this.panelControl_TTV.Controls.Add(nGAYCAPLabel);
+            this.panelControl_TTV.Controls.Add(this.deNgayCap);
+            this.panelControl_TTV.Controls.Add(mATHELabel);
+            this.panelControl_TTV.Controls.Add(this.txtMaThe);
+            this.panelControl_TTV.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelControl_TTV.Location = new System.Drawing.Point(0, 308);
+            this.panelControl_TTV.Name = "panelControl_TTV";
+            this.panelControl_TTV.Size = new System.Drawing.Size(1138, 350);
+            this.panelControl_TTV.TabIndex = 6;
             // 
-            // txtMaThe
+            // deHanSuDung
             // 
-            this.txtMaThe.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsTheThuVien, "MATHE", true));
-            this.txtMaThe.Location = new System.Drawing.Point(210, 55);
-            this.txtMaThe.MenuManager = this.barManager1;
-            this.txtMaThe.Name = "txtMaThe";
-            this.txtMaThe.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMaThe.Properties.Appearance.Options.UseFont = true;
-            this.txtMaThe.Size = new System.Drawing.Size(66, 26);
-            this.txtMaThe.TabIndex = 1;
-            // 
-            // nGAYCAPLabel
-            // 
-            nGAYCAPLabel.AutoSize = true;
-            nGAYCAPLabel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            nGAYCAPLabel.Location = new System.Drawing.Point(53, 131);
-            nGAYCAPLabel.Name = "nGAYCAPLabel";
-            nGAYCAPLabel.Size = new System.Drawing.Size(95, 19);
-            nGAYCAPLabel.TabIndex = 2;
-            nGAYCAPLabel.Text = "NGÀY CẤP:";
+            this.deHanSuDung.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsTheThuVien, "HSD", true));
+            this.deHanSuDung.EditValue = null;
+            this.deHanSuDung.Location = new System.Drawing.Point(210, 187);
+            this.deHanSuDung.MenuManager = this.barManager1;
+            this.deHanSuDung.Name = "deHanSuDung";
+            this.deHanSuDung.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.deHanSuDung.Properties.Appearance.Options.UseFont = true;
+            this.deHanSuDung.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deHanSuDung.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.deHanSuDung.Size = new System.Drawing.Size(153, 26);
+            this.deHanSuDung.TabIndex = 5;
+            this.deHanSuDung.Validating += new System.ComponentModel.CancelEventHandler(this.deHanSuDung_Validating);
             // 
             // deNgayCap
             // 
@@ -374,40 +396,25 @@ namespace THUVIEN
             this.deNgayCap.Size = new System.Drawing.Size(153, 26);
             this.deNgayCap.TabIndex = 3;
             // 
-            // hSDLabel
+            // txtMaThe
             // 
-            hSDLabel.AutoSize = true;
-            hSDLabel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            hSDLabel.Location = new System.Drawing.Point(53, 190);
-            hSDLabel.Name = "hSDLabel";
-            hSDLabel.Size = new System.Drawing.Size(127, 19);
-            hSDLabel.TabIndex = 4;
-            hSDLabel.Text = "HẠN SỬ DỤNG:";
-            // 
-            // deHanSuDung
-            // 
-            this.deHanSuDung.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsTheThuVien, "HSD", true));
-            this.deHanSuDung.EditValue = null;
-            this.deHanSuDung.Location = new System.Drawing.Point(210, 187);
-            this.deHanSuDung.MenuManager = this.barManager1;
-            this.deHanSuDung.Name = "deHanSuDung";
-            this.deHanSuDung.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deHanSuDung.Properties.Appearance.Options.UseFont = true;
-            this.deHanSuDung.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deHanSuDung.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.deHanSuDung.Size = new System.Drawing.Size(153, 26);
-            this.deHanSuDung.TabIndex = 5;
+            this.txtMaThe.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsTheThuVien, "MATHE", true));
+            this.txtMaThe.Location = new System.Drawing.Point(210, 55);
+            this.txtMaThe.MenuManager = this.barManager1;
+            this.txtMaThe.Name = "txtMaThe";
+            this.txtMaThe.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaThe.Properties.Appearance.Options.UseFont = true;
+            this.txtMaThe.Size = new System.Drawing.Size(66, 26);
+            this.txtMaThe.TabIndex = 1;
             // 
             // bdsDocGia
             // 
             this.bdsDocGia.DataMember = "FK_DOCGIA_THETHUVIEN";
             this.bdsDocGia.DataSource = this.bdsTheThuVien;
             // 
-            // dOCGIATableAdapter
+            // errorProvider
             // 
-            this.dOCGIATableAdapter.ClearBeforeFill = true;
+            this.errorProvider.ContainerControl = this;
             // 
             // frmTheThuVien
             // 
@@ -430,12 +437,13 @@ namespace THUVIEN
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panelControl_TTV.ResumeLayout(false);
             this.panelControl_TTV.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtMaThe.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deNgayCap.Properties.CalendarTimeProperties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deNgayCap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deHanSuDung.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deHanSuDung.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deNgayCap.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deNgayCap.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtMaThe.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsDocGia)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,5 +481,6 @@ namespace THUVIEN
         private DevExpress.XtraGrid.Columns.GridColumn colHSD;
         private QUANLYTHUVIENDataSetTableAdapters.DOCGIATableAdapter dOCGIATableAdapter;
         private System.Windows.Forms.BindingSource bdsDocGia;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
