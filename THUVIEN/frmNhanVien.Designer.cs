@@ -80,6 +80,7 @@ namespace THUVIEN
             this.deNgaySinh = new DevExpress.XtraEditors.DateEdit();
             this.txtTen = new DevExpress.XtraEditors.TextEdit();
             this.txtMaNV = new DevExpress.XtraEditors.TextEdit();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             mANVLabel = new System.Windows.Forms.Label();
             tENLabel = new System.Windows.Forms.Label();
             nGAYSINHLabel = new System.Windows.Forms.Label();
@@ -105,6 +106,7 @@ namespace THUVIEN
             ((System.ComponentModel.ISupportInitialize)(this.deNgaySinh.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNV.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // mANVLabel
@@ -559,8 +561,11 @@ namespace THUVIEN
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiaChi.Properties.Appearance.Options.UseFont = true;
+            this.txtDiaChi.Properties.MaxLength = 100;
             this.txtDiaChi.Size = new System.Drawing.Size(367, 26);
             this.txtDiaChi.TabIndex = 15;
+            this.txtDiaChi.EditValueChanged += new System.EventHandler(this.txtDiaChi_EditValueChanged);
+            this.txtDiaChi.Validating += new System.ComponentModel.CancelEventHandler(this.txtDiaChi_Validating);
             // 
             // txtEmail
             // 
@@ -571,8 +576,10 @@ namespace THUVIEN
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Properties.Appearance.Options.UseFont = true;
+            this.txtEmail.Properties.MaxLength = 50;
             this.txtEmail.Size = new System.Drawing.Size(229, 26);
             this.txtEmail.TabIndex = 13;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // txtSDT
             // 
@@ -583,8 +590,11 @@ namespace THUVIEN
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSDT.Properties.Appearance.Options.UseFont = true;
+            this.txtSDT.Properties.MaxLength = 12;
             this.txtSDT.Size = new System.Drawing.Size(121, 26);
             this.txtSDT.TabIndex = 11;
+            this.txtSDT.EditValueChanged += new System.EventHandler(this.txtSDT_EditValueChanged);
+            this.txtSDT.Validating += new System.ComponentModel.CancelEventHandler(this.txtSDT_Validating);
             // 
             // txtCCCD
             // 
@@ -595,8 +605,10 @@ namespace THUVIEN
             this.txtCCCD.Name = "txtCCCD";
             this.txtCCCD.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCCCD.Properties.Appearance.Options.UseFont = true;
+            this.txtCCCD.Properties.MaxLength = 12;
             this.txtCCCD.Size = new System.Drawing.Size(135, 26);
             this.txtCCCD.TabIndex = 9;
+            this.txtCCCD.Validating += new System.ComponentModel.CancelEventHandler(this.txtCCCD_Validating);
             // 
             // checkGioiTinh
             // 
@@ -625,6 +637,7 @@ namespace THUVIEN
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deNgaySinh.Size = new System.Drawing.Size(156, 26);
             this.deNgaySinh.TabIndex = 5;
+            this.deNgaySinh.Validating += new System.ComponentModel.CancelEventHandler(this.deNgaySinh_Validating);
             // 
             // txtTen
             // 
@@ -635,8 +648,10 @@ namespace THUVIEN
             this.txtTen.Name = "txtTen";
             this.txtTen.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTen.Properties.Appearance.Options.UseFont = true;
+            this.txtTen.Properties.MaxLength = 40;
             this.txtTen.Size = new System.Drawing.Size(192, 26);
             this.txtTen.TabIndex = 3;
+            this.txtTen.Validating += new System.ComponentModel.CancelEventHandler(this.txtTen_Validating);
             // 
             // txtMaNV
             // 
@@ -647,8 +662,14 @@ namespace THUVIEN
             this.txtMaNV.Name = "txtMaNV";
             this.txtMaNV.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMaNV.Properties.Appearance.Options.UseFont = true;
+            this.txtMaNV.Properties.MaxLength = 10;
             this.txtMaNV.Size = new System.Drawing.Size(156, 26);
             this.txtMaNV.TabIndex = 1;
+            this.txtMaNV.Validating += new System.ComponentModel.CancelEventHandler(this.txtMaNV_Validating);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // frmNhanVien
             // 
@@ -681,6 +702,7 @@ namespace THUVIEN
             ((System.ComponentModel.ISupportInitialize)(this.deNgaySinh.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTen.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNV.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -728,5 +750,6 @@ namespace THUVIEN
         private DevExpress.XtraGrid.Columns.GridColumn colMANV;
         private DevExpress.XtraGrid.Columns.GridColumn colTRANGTHAI;
         private DevExpress.XtraBars.BarButtonItem btnTaoTaiKhoan;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

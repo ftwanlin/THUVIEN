@@ -38,7 +38,7 @@ namespace THUVIEN
             gcNhanVien.Enabled = true;
             panelControl_NV.Enabled = false;
 
-            btnThem.Enabled = btnHieuChinh.Enabled = btnReload.Enabled = btnThoat.Enabled = true;
+            btnThem.Enabled = btnHieuChinh.Enabled = btnReload.Enabled = btnThoat.Enabled = btnTaoTaiKhoan.Enabled = true;
             btnLuu.Enabled = btnPhucHoi.Enabled = false;
 
         }
@@ -70,7 +70,7 @@ namespace THUVIEN
             gcNhanVien.Enabled = true;
             panelControl_NV.Enabled = false;
 
-            btnThem.Enabled = btnHieuChinh.Enabled = btnThoat.Enabled = btnReload.Enabled = true;
+            btnThem.Enabled = btnHieuChinh.Enabled = btnThoat.Enabled = btnReload.Enabled = btnTaoTaiKhoan.Enabled = true;
             btnLuu.Enabled = btnPhucHoi.Enabled = false;
         }
 
@@ -80,8 +80,10 @@ namespace THUVIEN
             panelControl_NV.Enabled = true;
             bdsNV.AddNew();
             txtMaNV.Enabled = true;
+            checkTrangThai.Checked = true;
+            checkTrangThai.Enabled = false;
 
-            btnThem.Enabled = btnHieuChinh.Enabled = btnThoat.Enabled = btnReload.Enabled = false;
+            btnThem.Enabled = btnHieuChinh.Enabled = btnThoat.Enabled = btnReload.Enabled = btnTaoTaiKhoan.Enabled = false;
             btnLuu.Enabled = btnPhucHoi.Enabled = true;
             gcNhanVien.Enabled = false;
         }
@@ -92,7 +94,7 @@ namespace THUVIEN
             panelControl_NV.Enabled = true;
             txtMaNV.Enabled = false;
 
-            btnThem.Enabled = btnHieuChinh.Enabled = btnReload.Enabled = btnThoat.Enabled = false;
+            btnThem.Enabled = btnHieuChinh.Enabled = btnReload.Enabled = btnThoat.Enabled = btnTaoTaiKhoan.Enabled = false;
             btnLuu.Enabled = btnPhucHoi.Enabled = true;
             gcNhanVien.Enabled = false;
         }
@@ -130,7 +132,7 @@ namespace THUVIEN
                         gcNhanVien.Enabled = true;
                         panelControl_NV.Enabled = false;
 
-                        btnThem.Enabled = btnHieuChinh.Enabled = btnReload.Enabled = btnThoat.Enabled = true;
+                        btnThem.Enabled = btnHieuChinh.Enabled = btnReload.Enabled = btnThoat.Enabled = btnTaoTaiKhoan.Enabled = true;
                         btnLuu.Enabled = btnPhucHoi.Enabled = false;
 
                     }
@@ -179,6 +181,121 @@ namespace THUVIEN
             Program.myReader.Read();
             Program.myReader.Close();
             Program.conn.Close();
+        }
+
+        private void txtMaNV_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtMaNV.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtMaNV, "Mã nhân viên không được để trống!");
+                txtMaNV.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtMaNV, "");
+            }
+        }
+
+        private void txtTen_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtTen.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtTen, "Tên nhân viên không được để trống!");
+                txtTen.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtTen, "");
+            }
+        }
+
+        private void deNgaySinh_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(deNgaySinh.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtTen, "Ngày sinh không được để trống!");
+                txtTen.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtTen, "");
+            }
+        }
+
+        private void txtCCCD_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtCCCD.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtCCCD, "CCCD không được để trống!");
+                txtCCCD.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtCCCD, "");
+            }
+        }
+
+        private void txtSDT_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtSDT_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtSDT.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtSDT, "Số điện thoại không được để trống!");
+                txtSDT.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtSDT, "");
+            }
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtEmail.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtEmail, "Email không được để trống!");
+                txtEmail.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtEmail, "");
+            }
+        }
+
+        private void txtDiaChi_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDiaChi_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtDiaChi.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtDiaChi, "Địa chỉ không được để trống!");
+                txtDiaChi.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtDiaChi, "");
+            }
         }
     }
 }
