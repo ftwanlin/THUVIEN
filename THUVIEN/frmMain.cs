@@ -126,13 +126,9 @@ namespace THUVIEN
         private void btnSaoLuu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (Program.KetNoi() == 0) return;
-            //con is the connection string
             if (MessageBox.Show("Xác nhận sao lưu phần mềm?", "Thông báo",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                /*string aaa = @"Data Source=" + "ASUS-FX505DT-AL" + ";Integrated Security=True;Initial Catalog=" + "QLKS" + "";
-                SqlConnection con = new SqlConnection(aaa);
-                con.Open();*/
                 string str = "USE QUANLYTHUVIEN;";
                 string str1 = "BACKUP DATABASE QUANLYTHUVIEN TO DISK = 'D:\\backupQLTV.Bak' WITH FORMAT,MEDIANAME = 'Z_SQLServerBackups',NAME = 'Full Backup of QUANLYTHUVIEN';";
                 SqlCommand cmd1 = new SqlCommand(str, Program.conn);
@@ -147,20 +143,15 @@ namespace THUVIEN
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (Program.KetNoi() == 0) return;
-            //Bắt lỗi ko tồn tại file backup thì báo lỗi
             if (!File.Exists(@"D:\\backupQLTV.Bak"))
             {
                 MessageBox.Show("Chưa có file sao lưu, không thể khôi phục dữ liệu\n Vui lòng sao lưu trước khi khôi phục dữ liệu!");
                 return;
             }
 
-            //con is the connection string
             if (MessageBox.Show("Xác nhận sao lưu phần mềm?", "Thông báo",
                     MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                /*string aaa = @"Data Source=" + "ASUS-FX505DT-AL" + ";Integrated Security=True;Initial Catalog=" + "QLKS" + "";
-                SqlConnection con = new SqlConnection(aaa);
-                con.Open();*/
                 string str = "USE master;";
                 string str1 = "ALTER DATABASE QUANLYTHUVIEN SET SINGLE_USER WITH ROLLBACK IMMEDIATE;";
                 string str3 = "RESTORE DATABASE QUANLYTHUVIEN FROM DISK = 'D:\\backupQLTV.Bak' WITH REPLACE ";
@@ -255,6 +246,18 @@ namespace THUVIEN
             {
                 frmPhieuMuon f = new frmPhieuMuon();
                 f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDoiMatKhau_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmDoiMatKhau));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmDoiMatKhau f = new frmDoiMatKhau();
+                //f.MdiParent = this;
                 f.Show();
             }
         }

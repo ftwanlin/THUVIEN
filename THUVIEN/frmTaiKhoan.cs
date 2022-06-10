@@ -21,7 +21,7 @@ namespace THUVIEN
         {
             this.Validate();
             this.bdsTaiKhoan.EndEdit();
-            this.tableAdapterManager.UpdateAll(this.qUANLYTHUVIENDataSet);
+            this.tableAdapterManager.UpdateAll(this.DS);
 
         }
 
@@ -29,7 +29,7 @@ namespace THUVIEN
         {
             if (Program.KetNoi() == 0) return;
             this.tAIKHOANTableAdapter.Connection.ConnectionString = Program.connstr;
-            this.tAIKHOANTableAdapter.Fill(this.qUANLYTHUVIENDataSet.TAIKHOAN);
+            this.tAIKHOANTableAdapter.Fill(this.DS.TAIKHOAN);
 
             gcTaiKhoan.Enabled = true;
             panelControl_TK.Enabled = false;

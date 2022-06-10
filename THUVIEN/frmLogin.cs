@@ -40,6 +40,13 @@ namespace THUVIEN
             Program.myReader.Read();
             Program.mHoten = Program.myReader.GetString(0);
             Program.mGroup = Program.myReader.GetString(1);
+            bool tt = Program.myReader.GetBoolean(2);
+            if (tt == false)
+            {
+                MessageBox.Show("Sai thông tin đăng nhập!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            Program.username = Program.mlogin;
             Program.myReader.Close();
             Program.conn.Close();
             MessageBox.Show("Nhân viên - Nhóm : " + Program.mHoten + " - " + Program.mGroup

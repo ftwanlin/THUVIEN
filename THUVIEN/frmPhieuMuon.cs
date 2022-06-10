@@ -44,6 +44,7 @@ namespace THUVIEN
             this.tINHTRANGTableAdapter.Fill(this.DS.TINHTRANG);
 
             LayDSTinhTrang("SELECT * FROM VIEW_TINHTRANG");
+            spnMaxSoLuong.Enabled = false;
         }
 
         private void LayDSTinhTrang(String cmd)
@@ -103,25 +104,11 @@ namespace THUVIEN
             gcPhieuMuon.Enabled = true;
 
             btnThem.Enabled = btnXoa.Enabled = btnHieuChinh.Enabled = btnThoat.Enabled = btnReload.Enabled = true;
+            spnMaxSoLuong.Enabled = false;
         }
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            string maPM = ((DataRowView)bdsPhieuMuon[bdsPhieuMuon.Position])["MAPHIEUMUON"].ToString().Trim();
-            int ret = Program.ExecSqlKiemTra1("SP_KiemTraPhieuMuon", maPM);
-
-            if (ret == 0)
-            {
-                MessageBox.Show("Phiếu mượn đã được trả, không thể thêm sách!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            int soLuongToiDa = int.Parse(((DataRowView)bdsPhieuMuon[bdsPhieuMuon.Position])["SOLUONGMUONTOIDA"].ToString().Trim());
-            if (bdsCTPM.Count == soLuongToiDa)
-            {
-                MessageBox.Show("Số lượng sách đạt tối đa, không thể thêm!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
 
             index = bdsPhieuMuon.Position;
 
@@ -129,6 +116,7 @@ namespace THUVIEN
             btnChonThe.Focus();
             txtmaNV.Text = Program.mlogin;
             txtNgayMuon.DateTime = DateTime.Now.Date;
+            spnMaxSoLuong.Enabled = true;
             spnMaxSoLuong.EditValue = 1;
 
             btnThem.Enabled = btnXoa.Enabled = btnHieuChinh.Enabled = btnThoat.Enabled = btnReload.Enabled = false;
@@ -162,6 +150,7 @@ namespace THUVIEN
 
                 gcPhieuMuon.Enabled = true;
                 btnThem.Enabled = btnXoa.Enabled = btnHieuChinh.Enabled = btnThoat.Enabled = btnReload.Enabled = true;
+                spnMaxSoLuong.Enabled = false;
 
                 MessageBox.Show("Lưu thành công!");
 
@@ -183,6 +172,22 @@ namespace THUVIEN
 
         private void btnThemCT_Click(object sender, EventArgs e)
         {
+            string maPM = ((DataRowView)bdsPhieuMuon[bdsPhieuMuon.Position])["MAPHIEUMUON"].ToString().Trim();
+            int ret = Program.ExecSqlKiemTra1("SP_KiemTraPhieuMuon", maPM);
+
+            if (ret == 0)
+            {
+                MessageBox.Show("Phiếu mượn đã được trả, không thể thêm sách!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int soLuongToiDa = int.Parse(((DataRowView)bdsPhieuMuon[bdsPhieuMuon.Position])["SOLUONGMUONTOIDA"].ToString().Trim());
+            if (bdsCTPM.Count == soLuongToiDa)
+            {
+                MessageBox.Show("Số lượng sách đạt tối đa, không thể thêm!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             gcPhieuMuon.Enabled = false;
 
             bdsCTPM.AddNew();
@@ -229,6 +234,8 @@ namespace THUVIEN
                 return;
             }
 
+            //int soLuongHienTai = int.Parse(((DataRowView)bdsPhieuMuon[bdsPhieuMuon.Position])["SOLUONGHIENTAI"].ToString().Trim());
+
             if (MessageBox.Show("Bạn có chắc muốn ghi dữ liệu vào Database?", "Thông báo",
                                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
@@ -243,6 +250,7 @@ namespace THUVIEN
                 btnHuyCT.Enabled = btnChonSach.Enabled = false;
 
                 MessageBox.Show("Ghi chi tiết thành công!");
+                cmbTinhTrang.Enabled = true;
 
             }
         }
@@ -324,6 +332,11 @@ namespace THUVIEN
                 MessageBox.Show("Không phải phiếu mượn do chính mình tạo, không thể thao tác!");
                 return;
             }
+        }
+
+        private void txtmaNV_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

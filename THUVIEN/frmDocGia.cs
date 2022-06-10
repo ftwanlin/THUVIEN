@@ -15,6 +15,7 @@ namespace THUVIEN
     {
         int index = 0;
         SqlConnection conn = new SqlConnection();
+        bool isThemClick = false;
         public frmDocGia()
         {
             InitializeComponent();
@@ -116,11 +117,13 @@ namespace THUVIEN
 
         private void btnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            isThemClick = true;
             index = bdsDocGia.Position;
             panelControl_DocGia.Enabled = true;
             bdsDocGia.AddNew();
             // txtMaSach.Text = "";
             txtMaDocGia.Enabled = false;
+            txtMaThe.Enabled = true;
 
             btnThem.Enabled = btnHieuChinh.Enabled = btnThoat.Enabled = btnReload.Enabled = btnXoa.Enabled = false;
             btnLuu.Enabled = btnPhucHoi.Enabled = true;
@@ -132,6 +135,7 @@ namespace THUVIEN
             index = bdsDocGia.Position;
             panelControl_DocGia.Enabled = true;
             txtMaDocGia.Enabled = false;
+            txtMaThe.Enabled = false;
 
             btnThem.Enabled = btnHieuChinh.Enabled = btnReload.Enabled = btnThoat.Enabled = btnXoa.Enabled = false;
             btnLuu.Enabled = btnPhucHoi.Enabled = true;
@@ -145,12 +149,17 @@ namespace THUVIEN
                 if (Program.KetNoi() == 0) return;
                 int maDocGia = int.Parse(txtMaDocGia.Text.Trim());
 
-                int ret = Program.ExecSqlKiemTra1("SP_TimTheThuVien", txtMaThe.Text);
-                if (ret == 1)
+
+                if (isThemClick == true)
                 {
-                    MessageBox.Show("Thẻ thư viện này đã được người khác sử dụng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    int ret = Program.ExecSqlKiemTra1("SP_TimTheThuVien", txtMaThe.Text);
+                    if (ret == 1)
+                    {
+                        MessageBox.Show("Thẻ thư viện này đã được người khác sử dụng!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
+                
 
                 String sql;
 
@@ -161,8 +170,7 @@ namespace THUVIEN
                 else
                 {
                     sql = "UPDATE DOCGIA\n" +
-                        "SET MATHE = " + txtMaThe.Text + ",\n" +
-                        "TENDOCGIA = N'" + txtTenDocGia.Text + "',\n" +
+                        "SET TENDOCGIA = N'" + txtTenDocGia.Text + "',\n" +
                         "NGAYSINH = '" + deNgaySinh.Text + "',\n" +
                         "GIOITINH = '" + checkGioiTinh.Checked.ToString() + "',\n" +
                         "CCCD = '" + txtCCCD.Text + "',\n" +
@@ -176,7 +184,7 @@ namespace THUVIEN
                 {
                     try
                     {
-                        MessageBox.Show(sql);
+                        //MessageBox.Show(sql);
                         //return;
                         conn.ConnectionString = Program.connstr;
                         if (conn.State == ConnectionState.Closed) conn.Open();
@@ -191,6 +199,8 @@ namespace THUVIEN
 
                         btnThem.Enabled = btnHieuChinh.Enabled = btnReload.Enabled = btnThoat.Enabled = btnXoa.Enabled = true;
                         btnLuu.Enabled = btnPhucHoi.Enabled = false;
+
+                        isThemClick = false;
 
                     }
                     catch (Exception ex)

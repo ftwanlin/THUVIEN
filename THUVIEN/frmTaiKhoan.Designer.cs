@@ -30,20 +30,20 @@ namespace THUVIEN
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTaiKhoan));
             System.Windows.Forms.Label tENDANGNHAPLabel;
             System.Windows.Forms.Label mAQUYENLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTaiKhoan));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
-            this.btnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
             this.btnThoat = new DevExpress.XtraBars.BarButtonItem();
             this.bar3 = new DevExpress.XtraBars.Bar();
             this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
+            this.btnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
             this.btnChuyenChiNhanh = new DevExpress.XtraBars.BarButtonItem();
-            this.qUANLYTHUVIENDataSet = new THUVIEN.QUANLYTHUVIENDataSet();
+            this.DS = new THUVIEN.QUANLYTHUVIENDataSet();
             this.bdsTaiKhoan = new System.Windows.Forms.BindingSource(this.components);
             this.tAIKHOANTableAdapter = new THUVIEN.QUANLYTHUVIENDataSetTableAdapters.TAIKHOANTableAdapter();
             this.tableAdapterManager = new THUVIEN.QUANLYTHUVIENDataSetTableAdapters.TableAdapterManager();
@@ -52,19 +52,39 @@ namespace THUVIEN
             this.colMAQUYEN = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENDANGNHAP = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl_TK = new System.Windows.Forms.Panel();
-            this.tENDANGNHAPTextEdit = new DevExpress.XtraEditors.TextEdit();
             this.mAQUYENTextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.tENDANGNHAPTextEdit = new DevExpress.XtraEditors.TextEdit();
             tENDANGNHAPLabel = new System.Windows.Forms.Label();
             mAQUYENLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qUANLYTHUVIENDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsTaiKhoan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcTaiKhoan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.panelControl_TK.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tENDANGNHAPTextEdit.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mAQUYENTextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tENDANGNHAPTextEdit.Properties)).BeginInit();
             this.SuspendLayout();
+            // 
+            // tENDANGNHAPLabel
+            // 
+            tENDANGNHAPLabel.AutoSize = true;
+            tENDANGNHAPLabel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tENDANGNHAPLabel.Location = new System.Drawing.Point(49, 94);
+            tENDANGNHAPLabel.Name = "tENDANGNHAPLabel";
+            tENDANGNHAPLabel.Size = new System.Drawing.Size(145, 19);
+            tENDANGNHAPLabel.TabIndex = 0;
+            tENDANGNHAPLabel.Text = "TÊN ĐĂNG NHẬP:";
+            // 
+            // mAQUYENLabel
+            // 
+            mAQUYENLabel.AutoSize = true;
+            mAQUYENLabel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            mAQUYENLabel.Location = new System.Drawing.Point(49, 152);
+            mAQUYENLabel.Name = "mAQUYENLabel";
+            mAQUYENLabel.Size = new System.Drawing.Size(101, 19);
+            mAQUYENLabel.TabIndex = 2;
+            mAQUYENLabel.Text = "MÃ QUYỀN:";
             // 
             // barManager1
             // 
@@ -92,13 +112,6 @@ namespace THUVIEN
             this.bar1.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
             new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnThoat, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar1.Text = "Tools";
-            // 
-            // btnPhucHoi
-            // 
-            this.btnPhucHoi.Caption = "Phục hồi";
-            this.btnPhucHoi.Id = 4;
-            this.btnPhucHoi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPhucHoi.ImageOptions.SvgImage")));
-            this.btnPhucHoi.Name = "btnPhucHoi";
             // 
             // btnThoat
             // 
@@ -152,21 +165,28 @@ namespace THUVIEN
             this.barDockControlRight.Manager = this.barManager1;
             this.barDockControlRight.Size = new System.Drawing.Size(0, 600);
             // 
+            // btnPhucHoi
+            // 
+            this.btnPhucHoi.Caption = "Phục hồi";
+            this.btnPhucHoi.Id = 4;
+            this.btnPhucHoi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPhucHoi.ImageOptions.SvgImage")));
+            this.btnPhucHoi.Name = "btnPhucHoi";
+            // 
             // btnChuyenChiNhanh
             // 
             this.btnChuyenChiNhanh.Caption = "Chuyển chi nhánh nhân viên";
             this.btnChuyenChiNhanh.Id = 6;
             this.btnChuyenChiNhanh.Name = "btnChuyenChiNhanh";
             // 
-            // qUANLYTHUVIENDataSet
+            // DS
             // 
-            this.qUANLYTHUVIENDataSet.DataSetName = "QUANLYTHUVIENDataSet";
-            this.qUANLYTHUVIENDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.DS.DataSetName = "QUANLYTHUVIENDataSet";
+            this.DS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // bdsTaiKhoan
             // 
             this.bdsTaiKhoan.DataMember = "TAIKHOAN";
-            this.bdsTaiKhoan.DataSource = this.qUANLYTHUVIENDataSet;
+            this.bdsTaiKhoan.DataSource = this.DS;
             // 
             // tAIKHOANTableAdapter
             // 
@@ -246,15 +266,16 @@ namespace THUVIEN
             this.panelControl_TK.Size = new System.Drawing.Size(1010, 380);
             this.panelControl_TK.TabIndex = 6;
             // 
-            // tENDANGNHAPLabel
+            // mAQUYENTextEdit
             // 
-            tENDANGNHAPLabel.AutoSize = true;
-            tENDANGNHAPLabel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tENDANGNHAPLabel.Location = new System.Drawing.Point(49, 94);
-            tENDANGNHAPLabel.Name = "tENDANGNHAPLabel";
-            tENDANGNHAPLabel.Size = new System.Drawing.Size(145, 19);
-            tENDANGNHAPLabel.TabIndex = 0;
-            tENDANGNHAPLabel.Text = "TÊN ĐĂNG NHẬP:";
+            this.mAQUYENTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsTaiKhoan, "MAQUYEN", true));
+            this.mAQUYENTextEdit.Location = new System.Drawing.Point(220, 149);
+            this.mAQUYENTextEdit.MenuManager = this.barManager1;
+            this.mAQUYENTextEdit.Name = "mAQUYENTextEdit";
+            this.mAQUYENTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mAQUYENTextEdit.Properties.Appearance.Options.UseFont = true;
+            this.mAQUYENTextEdit.Size = new System.Drawing.Size(125, 26);
+            this.mAQUYENTextEdit.TabIndex = 4;
             // 
             // tENDANGNHAPTextEdit
             // 
@@ -266,27 +287,6 @@ namespace THUVIEN
             this.tENDANGNHAPTextEdit.Properties.Appearance.Options.UseFont = true;
             this.tENDANGNHAPTextEdit.Size = new System.Drawing.Size(88, 26);
             this.tENDANGNHAPTextEdit.TabIndex = 1;
-            // 
-            // mAQUYENLabel
-            // 
-            mAQUYENLabel.AutoSize = true;
-            mAQUYENLabel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            mAQUYENLabel.Location = new System.Drawing.Point(49, 152);
-            mAQUYENLabel.Name = "mAQUYENLabel";
-            mAQUYENLabel.Size = new System.Drawing.Size(101, 19);
-            mAQUYENLabel.TabIndex = 2;
-            mAQUYENLabel.Text = "MÃ QUYỀN:";
-            // 
-            // mAQUYENTextEdit
-            // 
-            this.mAQUYENTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsTaiKhoan, "MAQUYEN", true));
-            this.mAQUYENTextEdit.Location = new System.Drawing.Point(220, 149);
-            this.mAQUYENTextEdit.MenuManager = this.barManager1;
-            this.mAQUYENTextEdit.Name = "mAQUYENTextEdit";
-            this.mAQUYENTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mAQUYENTextEdit.Properties.Appearance.Options.UseFont = true;
-            this.mAQUYENTextEdit.Size = new System.Drawing.Size(125, 26);
-            this.mAQUYENTextEdit.TabIndex = 4;
             // 
             // frmTaiKhoan
             // 
@@ -303,14 +303,14 @@ namespace THUVIEN
             this.Text = "frmTaiKhoan";
             this.Load += new System.EventHandler(this.frmTaiKhoan_Load);
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.qUANLYTHUVIENDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsTaiKhoan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gcTaiKhoan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.panelControl_TK.ResumeLayout(false);
             this.panelControl_TK.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tENDANGNHAPTextEdit.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mAQUYENTextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tENDANGNHAPTextEdit.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,7 +327,7 @@ namespace THUVIEN
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
         private System.Windows.Forms.BindingSource bdsTaiKhoan;
-        private QUANLYTHUVIENDataSet qUANLYTHUVIENDataSet;
+        private QUANLYTHUVIENDataSet DS;
         private DevExpress.XtraBars.BarButtonItem btnPhucHoi;
         private DevExpress.XtraBars.BarButtonItem btnChuyenChiNhanh;
         private QUANLYTHUVIENDataSetTableAdapters.TAIKHOANTableAdapter tAIKHOANTableAdapter;

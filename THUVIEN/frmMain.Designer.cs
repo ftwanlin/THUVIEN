@@ -45,6 +45,7 @@ namespace THUVIEN
             this.btnDangXuat = new DevExpress.XtraBars.BarButtonItem();
             this.btnSaoLuu = new DevExpress.XtraBars.BarButtonItem();
             this.btnPhucHoi = new DevExpress.XtraBars.BarButtonItem();
+            this.btnPhieuMuon = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage_HeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup10 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
@@ -66,7 +67,6 @@ namespace THUVIEN
             this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.btnPhieuMuon = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -183,6 +183,7 @@ namespace THUVIEN
             this.btnDoiMatKhau.Id = 10;
             this.btnDoiMatKhau.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnDoiMatKhau.ImageOptions.SvgImage")));
             this.btnDoiMatKhau.Name = "btnDoiMatKhau";
+            this.btnDoiMatKhau.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDoiMatKhau_ItemClick);
             // 
             // btnDangXuat
             // 
@@ -207,6 +208,16 @@ namespace THUVIEN
             this.btnPhucHoi.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("btnPhucHoi.ImageOptions.SvgImage")));
             this.btnPhucHoi.Name = "btnPhucHoi";
             this.btnPhucHoi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhucHoi_ItemClick);
+            // 
+            // btnPhieuMuon
+            // 
+            this.btnPhieuMuon.Caption = "Phiếu mượn";
+            this.btnPhieuMuon.Id = 14;
+            this.btnPhieuMuon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPhieuMuon.ImageOptions.Image")));
+            this.btnPhieuMuon.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPhieuMuon.ImageOptions.LargeImage")));
+            this.btnPhieuMuon.LargeWidth = 80;
+            this.btnPhieuMuon.Name = "btnPhieuMuon";
+            this.btnPhieuMuon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhieuMuon_ItemClick);
             // 
             // ribbonPage_HeThong
             // 
@@ -343,16 +354,6 @@ namespace THUVIEN
             // xtraTabbedMdiManager1
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
-            // 
-            // btnPhieuMuon
-            // 
-            this.btnPhieuMuon.Caption = "Phiếu mượn";
-            this.btnPhieuMuon.Id = 14;
-            this.btnPhieuMuon.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnPhieuMuon.ImageOptions.Image")));
-            this.btnPhieuMuon.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnPhieuMuon.ImageOptions.LargeImage")));
-            this.btnPhieuMuon.LargeWidth = 80;
-            this.btnPhieuMuon.Name = "btnPhieuMuon";
-            this.btnPhieuMuon.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnPhieuMuon_ItemClick);
             // 
             // frmMain
             // 

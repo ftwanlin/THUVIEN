@@ -79,7 +79,7 @@ namespace THUVIEN
             panelControl_NV.Enabled = true;
             bdsNV.AddNew();
             // txtMaSach.Text = "";
-            txtMaNV.Enabled = false;
+            txtMaNV.Enabled = true;
 
             btnThem.Enabled = btnHieuChinh.Enabled = btnThoat.Enabled = btnReload.Enabled = false;
             btnLuu.Enabled = btnPhucHoi.Enabled = true;
@@ -102,42 +102,37 @@ namespace THUVIEN
             if (ValidateChildren(ValidationConstraints.Enabled))
             {
                 if (Program.KetNoi() == 0) return;
-                int maNV = int.Parse(txtMaNV.Text.Trim());
+               // String sql;
 
-                String sql;
+                //String maNV = ((DataRowView)bdsNV[bdsNV.Position])["TRANGTHAI"].ToString();
 
-                if (maNV <= 0)
+                int result_value = Program.ExecSqlKiemTra1("SP_TimNV", txtMaNV.Text.Trim());
+
+                int indexMaNV = bdsNV.Find("MANV", txtMaNV.Text);
+                int indexCurrent = bdsNV.Position;
+
+                if (result_value == 1 && (indexMaNV != indexCurrent))
                 {
-                    sql = "INSERT INTO NHANVIEN(TEN, NGAYSINH, GIOITINH, CCCD, SDT, EMAIL, DIACHI, TRANGTHAI) VALUES(N'" + txtTen.Text + "', '" + deNgaySinh.Text + "', '" + checkGioiTinh.Checked.ToString() + "', '" + txtCCCD.Text + "', '" + txtSDT.Text + "', '" + txtEmail.Text + "', N'" + txtDiaChi.Text + "', '" + checkTrangThai.Checked.ToString() + "')";
-                }
-                else
-                {
-                    sql = "UPDATE NHANVIEN\n" +
-                        "SET TEN = N'" + txtTen.Text + "',\n" +
-                        "NGAYSINH = '" + deNgaySinh.Text + "',\n" +
-                        "GIOITINH = '" + checkGioiTinh.Checked.ToString() + "',\n" +
-                        "CCCD = '" + txtCCCD.Text + "',\n" +
-                        "SDT = '" + txtSDT.Text + "',\n" +
-                        "EMAIL = '" + txtEmail.Text + "',\n" +
-                        "DIACHI = N'" + txtDiaChi.Text + "',\n" +
-                        "TRANGTHAI = '" + checkTrangThai.Checked.ToString() + "'\n" +
-                        "WHERE MANV = " + maNV;
+                    MessageBox.Show("Mã nhân viên đã tồn tại!", "Thông báo",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    return;
                 }
                 if (MessageBox.Show("Bạn có chắc muốn ghi dữ liệu vào Database?", "Thông báo",
                                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
                 {
                     try
                     {
-                        MessageBox.Show(sql);
+                        //MessageBox.Show(sql);
                         //return;
-                        conn.ConnectionString = Program.connstr;
-                        if (conn.State == ConnectionState.Closed) conn.Open();
-                        SqlCommand cmd = new SqlCommand(sql, conn);
-                        cmd.ExecuteNonQuery();
-                        if (conn.State == ConnectionState.Open) conn.Close();
-
+                        //conn.ConnectionString = Program.connstr;
+                        //if (conn.State == ConnectionState.Closed) conn.Open();
+                        //SqlCommand cmd = new SqlCommand(sql, conn);
+                        //cmd.ExecuteNonQuery();
+                        //if (conn.State == ConnectionState.Open) conn.Close();
+                        bdsNV.EndEdit();
+                        bdsNV.ResetCurrentItem();
                         this.nHANVIENTableAdapter.Connection.ConnectionString = Program.connstr;
-                        this.nHANVIENTableAdapter.Fill(this.DS.NHANVIEN);
+                        this.nHANVIENTableAdapter.Update(this.DS.NHANVIEN);
                         gcNhanVien.Enabled = true;
                         panelControl_NV.Enabled = false;
 
@@ -198,7 +193,7 @@ namespace THUVIEN
             //}
 
             String maNV = ((DataRowView)bdsNV[bdsNV.Position])["MANV"].ToString();
-            String sql = "EXEC dbo.SP_TaoTaiKhoan " + maNV;
+            String sql = "EXEC dbo.SP_TaoTaiKhoan '" + maNV  + "', '" + role + "'";
             Program.myReader = Program.ExecSqlDataReader(sql);
             if (Program.myReader == null) return;
             else

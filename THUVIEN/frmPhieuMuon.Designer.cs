@@ -37,9 +37,9 @@ namespace THUVIEN
             System.Windows.Forms.Label mASACHLabel;
             System.Windows.Forms.Label hANTRALabel;
             System.Windows.Forms.Label gHICHULabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhieuMuon));
             System.Windows.Forms.Label mATINHTRANGLabel;
             System.Windows.Forms.Label tINHTRANGLabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPhieuMuon));
             this.DS = new THUVIEN.QUANLYTHUVIENDataSet();
             this.bdsPhieuMuon = new System.Windows.Forms.BindingSource(this.components);
             this.pHIEUMUONTableAdapter = new THUVIEN.QUANLYTHUVIENDataSetTableAdapters.PHIEUMUONTableAdapter();
@@ -67,9 +67,12 @@ namespace THUVIEN
             this.colNGAYMUON = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOLUONGMUONTOIDA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelInput = new DevExpress.XtraEditors.PanelControl();
+            this.cmbTinhTrang = new System.Windows.Forms.ComboBox();
+            this.bdsTT = new System.Windows.Forms.BindingSource(this.components);
+            this.bdsCTPM = new System.Windows.Forms.BindingSource(this.components);
+            this.txtMaTT = new System.Windows.Forms.TextBox();
             this.btnChonSach = new System.Windows.Forms.Button();
             this.txtGhiChu = new DevExpress.XtraEditors.TextEdit();
-            this.bdsCTPM = new System.Windows.Forms.BindingSource(this.components);
             this.txtHanTra = new DevExpress.XtraEditors.DateEdit();
             this.txtMaSach = new System.Windows.Forms.TextBox();
             this.separatorControl1 = new DevExpress.XtraEditors.SeparatorControl();
@@ -90,10 +93,7 @@ namespace THUVIEN
             this.btnGhiCT = new System.Windows.Forms.ToolStripMenuItem();
             this.btnXoaCT = new System.Windows.Forms.ToolStripMenuItem();
             this.btnHuyCT = new System.Windows.Forms.ToolStripMenuItem();
-            this.txtMaTT = new System.Windows.Forms.TextBox();
-            this.bdsTT = new System.Windows.Forms.BindingSource(this.components);
             this.tINHTRANGTableAdapter = new THUVIEN.QUANLYTHUVIENDataSetTableAdapters.TINHTRANGTableAdapter();
-            this.cmbTinhTrang = new System.Windows.Forms.ComboBox();
             mATHELabel = new System.Windows.Forms.Label();
             mANVLabel = new System.Windows.Forms.Label();
             nGAYMUONLabel = new System.Windows.Forms.Label();
@@ -110,8 +110,9 @@ namespace THUVIEN
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelInput)).BeginInit();
             this.panelInput.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsTT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPM)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHanTra.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHanTra.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).BeginInit();
@@ -121,7 +122,6 @@ namespace THUVIEN
             ((System.ComponentModel.ISupportInitialize)(this.gcCTPM)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsTT)).BeginInit();
             this.SuspendLayout();
             // 
             // mATHELabel
@@ -129,63 +129,81 @@ namespace THUVIEN
             mATHELabel.AutoSize = true;
             mATHELabel.Location = new System.Drawing.Point(280, 33);
             mATHELabel.Name = "mATHELabel";
-            mATHELabel.Size = new System.Drawing.Size(56, 17);
+            mATHELabel.Size = new System.Drawing.Size(60, 17);
             mATHELabel.TabIndex = 2;
-            mATHELabel.Text = "MATHE:";
+            mATHELabel.Text = "MÃ THẺ:";
             // 
             // mANVLabel
             // 
             mANVLabel.AutoSize = true;
-            mANVLabel.Location = new System.Drawing.Point(53, 83);
+            mANVLabel.Location = new System.Drawing.Point(12, 83);
             mANVLabel.Name = "mANVLabel";
-            mANVLabel.Size = new System.Drawing.Size(48, 17);
+            mANVLabel.Size = new System.Drawing.Size(103, 17);
             mANVLabel.TabIndex = 4;
-            mANVLabel.Text = "MANV:";
+            mANVLabel.Text = "MÃ NHÂN VIÊN:";
             // 
             // nGAYMUONLabel
             // 
             nGAYMUONLabel.AutoSize = true;
             nGAYMUONLabel.Location = new System.Drawing.Point(251, 84);
             nGAYMUONLabel.Name = "nGAYMUONLabel";
-            nGAYMUONLabel.Size = new System.Drawing.Size(85, 17);
+            nGAYMUONLabel.Size = new System.Drawing.Size(90, 17);
             nGAYMUONLabel.TabIndex = 6;
-            nGAYMUONLabel.Text = "NGAYMUON:";
+            nGAYMUONLabel.Text = "NGÀY MƯỢN:";
             // 
             // sOLUONGMUONTOIDALabel
             // 
             sOLUONGMUONTOIDALabel.AutoSize = true;
-            sOLUONGMUONTOIDALabel.Location = new System.Drawing.Point(183, 141);
+            sOLUONGMUONTOIDALabel.Location = new System.Drawing.Point(165, 142);
             sOLUONGMUONTOIDALabel.Name = "sOLUONGMUONTOIDALabel";
-            sOLUONGMUONTOIDALabel.Size = new System.Drawing.Size(153, 17);
+            sOLUONGMUONTOIDALabel.Size = new System.Drawing.Size(171, 17);
             sOLUONGMUONTOIDALabel.TabIndex = 8;
-            sOLUONGMUONTOIDALabel.Text = "SOLUONGMUONTOIDA:";
+            sOLUONGMUONTOIDALabel.Text = "SỐ LƯỢNG MƯỢN TỐI ĐA:";
             // 
             // mASACHLabel
             // 
             mASACHLabel.AutoSize = true;
             mASACHLabel.Location = new System.Drawing.Point(276, 212);
             mASACHLabel.Name = "mASACHLabel";
-            mASACHLabel.Size = new System.Drawing.Size(65, 17);
+            mASACHLabel.Size = new System.Drawing.Size(69, 17);
             mASACHLabel.TabIndex = 11;
-            mASACHLabel.Text = "MASACH:";
+            mASACHLabel.Text = "MÃ SÁCH:";
             // 
             // hANTRALabel
             // 
             hANTRALabel.AutoSize = true;
             hANTRALabel.Location = new System.Drawing.Point(276, 309);
             hANTRALabel.Name = "hANTRALabel";
-            hANTRALabel.Size = new System.Drawing.Size(64, 17);
+            hANTRALabel.Size = new System.Drawing.Size(68, 17);
             hANTRALabel.TabIndex = 12;
-            hANTRALabel.Text = "HANTRA:";
+            hANTRALabel.Text = "HẠN TRẢ:";
             // 
             // gHICHULabel
             // 
             gHICHULabel.AutoSize = true;
             gHICHULabel.Location = new System.Drawing.Point(279, 357);
             gHICHULabel.Name = "gHICHULabel";
-            gHICHULabel.Size = new System.Drawing.Size(62, 17);
+            gHICHULabel.Size = new System.Drawing.Size(66, 17);
             gHICHULabel.TabIndex = 14;
-            gHICHULabel.Text = "GHICHU:";
+            gHICHULabel.Text = "GHI CHÚ:";
+            // 
+            // mATINHTRANGLabel
+            // 
+            mATINHTRANGLabel.AutoSize = true;
+            mATINHTRANGLabel.Location = new System.Drawing.Point(231, 261);
+            mATINHTRANGLabel.Name = "mATINHTRANGLabel";
+            mATINHTRANGLabel.Size = new System.Drawing.Size(112, 17);
+            mATINHTRANGLabel.TabIndex = 17;
+            mATINHTRANGLabel.Text = "MÃ TÌNH TRẠNG:";
+            // 
+            // tINHTRANGLabel
+            // 
+            tINHTRANGLabel.AutoSize = true;
+            tINHTRANGLabel.Location = new System.Drawing.Point(12, 261);
+            tINHTRANGLabel.Name = "tINHTRANGLabel";
+            tINHTRANGLabel.Size = new System.Drawing.Size(86, 17);
+            tINHTRANGLabel.TabIndex = 19;
+            tINHTRANGLabel.Text = "TINHTRANG:";
             // 
             // DS
             // 
@@ -378,45 +396,60 @@ namespace THUVIEN
             // 
             // colMAPHIEUMUON
             // 
+            this.colMAPHIEUMUON.Caption = "MÃ PHIẾU MƯỢN";
             this.colMAPHIEUMUON.FieldName = "MAPHIEUMUON";
             this.colMAPHIEUMUON.MinWidth = 25;
             this.colMAPHIEUMUON.Name = "colMAPHIEUMUON";
+            this.colMAPHIEUMUON.OptionsColumn.AllowEdit = false;
+            this.colMAPHIEUMUON.OptionsColumn.AllowFocus = false;
             this.colMAPHIEUMUON.Visible = true;
             this.colMAPHIEUMUON.VisibleIndex = 0;
             this.colMAPHIEUMUON.Width = 94;
             // 
             // colMATHE
             // 
+            this.colMATHE.Caption = "MÃ THẺ";
             this.colMATHE.FieldName = "MATHE";
             this.colMATHE.MinWidth = 25;
             this.colMATHE.Name = "colMATHE";
+            this.colMATHE.OptionsColumn.AllowEdit = false;
+            this.colMATHE.OptionsColumn.AllowFocus = false;
             this.colMATHE.Visible = true;
             this.colMATHE.VisibleIndex = 1;
             this.colMATHE.Width = 94;
             // 
             // colMANV
             // 
+            this.colMANV.Caption = "MÃ NHÂN VIÊN";
             this.colMANV.FieldName = "MANV";
             this.colMANV.MinWidth = 25;
             this.colMANV.Name = "colMANV";
+            this.colMANV.OptionsColumn.AllowEdit = false;
+            this.colMANV.OptionsColumn.AllowFocus = false;
             this.colMANV.Visible = true;
             this.colMANV.VisibleIndex = 2;
             this.colMANV.Width = 94;
             // 
             // colNGAYMUON
             // 
+            this.colNGAYMUON.Caption = "NGÀY MƯỢN";
             this.colNGAYMUON.FieldName = "NGAYMUON";
             this.colNGAYMUON.MinWidth = 25;
             this.colNGAYMUON.Name = "colNGAYMUON";
+            this.colNGAYMUON.OptionsColumn.AllowEdit = false;
+            this.colNGAYMUON.OptionsColumn.AllowFocus = false;
             this.colNGAYMUON.Visible = true;
             this.colNGAYMUON.VisibleIndex = 3;
             this.colNGAYMUON.Width = 94;
             // 
             // colSOLUONGMUONTOIDA
             // 
+            this.colSOLUONGMUONTOIDA.Caption = "SỐ LƯỢNG MƯỢN TỐI ĐA";
             this.colSOLUONGMUONTOIDA.FieldName = "SOLUONGMUONTOIDA";
             this.colSOLUONGMUONTOIDA.MinWidth = 25;
             this.colSOLUONGMUONTOIDA.Name = "colSOLUONGMUONTOIDA";
+            this.colSOLUONGMUONTOIDA.OptionsColumn.AllowEdit = false;
+            this.colSOLUONGMUONTOIDA.OptionsColumn.AllowFocus = false;
             this.colSOLUONGMUONTOIDA.Visible = true;
             this.colSOLUONGMUONTOIDA.VisibleIndex = 4;
             this.colSOLUONGMUONTOIDA.Width = 94;
@@ -450,6 +483,36 @@ namespace THUVIEN
             this.panelInput.Size = new System.Drawing.Size(560, 409);
             this.panelInput.TabIndex = 5;
             // 
+            // cmbTinhTrang
+            // 
+            this.cmbTinhTrang.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsTT, "TINHTRANG", true));
+            this.cmbTinhTrang.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsCTPM, "MATINHTRANG", true));
+            this.cmbTinhTrang.FormattingEnabled = true;
+            this.cmbTinhTrang.Location = new System.Drawing.Point(104, 258);
+            this.cmbTinhTrang.Name = "cmbTinhTrang";
+            this.cmbTinhTrang.Size = new System.Drawing.Size(121, 24);
+            this.cmbTinhTrang.TabIndex = 20;
+            this.cmbTinhTrang.SelectedIndexChanged += new System.EventHandler(this.cmbTinhTrang_SelectedIndexChanged);
+            // 
+            // bdsTT
+            // 
+            this.bdsTT.DataMember = "TINHTRANG";
+            this.bdsTT.DataSource = this.DS;
+            // 
+            // bdsCTPM
+            // 
+            this.bdsCTPM.DataMember = "FK_CT_PHIEUMUON_PHIEUMUON";
+            this.bdsCTPM.DataSource = this.bdsPhieuMuon;
+            // 
+            // txtMaTT
+            // 
+            this.txtMaTT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsCTPM, "MATINHTRANG", true));
+            this.txtMaTT.Enabled = false;
+            this.txtMaTT.Location = new System.Drawing.Point(346, 258);
+            this.txtMaTT.Name = "txtMaTT";
+            this.txtMaTT.Size = new System.Drawing.Size(154, 23);
+            this.txtMaTT.TabIndex = 18;
+            // 
             // btnChonSach
             // 
             this.btnChonSach.Enabled = false;
@@ -469,11 +532,6 @@ namespace THUVIEN
             this.txtGhiChu.Name = "txtGhiChu";
             this.txtGhiChu.Size = new System.Drawing.Size(155, 22);
             this.txtGhiChu.TabIndex = 15;
-            // 
-            // bdsCTPM
-            // 
-            this.bdsCTPM.DataMember = "FK_CT_PHIEUMUON_PHIEUMUON";
-            this.bdsCTPM.DataSource = this.bdsPhieuMuon;
             // 
             // txtHanTra
             // 
@@ -562,10 +620,11 @@ namespace THUVIEN
             // 
             this.txtmaNV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsPhieuMuon, "MANV", true));
             this.txtmaNV.Enabled = false;
-            this.txtmaNV.Location = new System.Drawing.Point(107, 80);
+            this.txtmaNV.Location = new System.Drawing.Point(121, 80);
             this.txtmaNV.Name = "txtmaNV";
             this.txtmaNV.Size = new System.Drawing.Size(92, 23);
             this.txtmaNV.TabIndex = 5;
+            this.txtmaNV.TextChanged += new System.EventHandler(this.txtmaNV_TextChanged);
             // 
             // txtMaThe
             // 
@@ -602,45 +661,60 @@ namespace THUVIEN
             // 
             // colMAPHIEUMUON1
             // 
+            this.colMAPHIEUMUON1.Caption = "MÃ PHIẾU MƯỢN";
             this.colMAPHIEUMUON1.FieldName = "MAPHIEUMUON";
             this.colMAPHIEUMUON1.MinWidth = 25;
             this.colMAPHIEUMUON1.Name = "colMAPHIEUMUON1";
+            this.colMAPHIEUMUON1.OptionsColumn.AllowEdit = false;
+            this.colMAPHIEUMUON1.OptionsColumn.AllowFocus = false;
             this.colMAPHIEUMUON1.Visible = true;
             this.colMAPHIEUMUON1.VisibleIndex = 0;
             this.colMAPHIEUMUON1.Width = 94;
             // 
             // colMASACH
             // 
+            this.colMASACH.Caption = "MÃ SÁCH";
             this.colMASACH.FieldName = "MASACH";
             this.colMASACH.MinWidth = 25;
             this.colMASACH.Name = "colMASACH";
+            this.colMASACH.OptionsColumn.AllowEdit = false;
+            this.colMASACH.OptionsColumn.AllowFocus = false;
             this.colMASACH.Visible = true;
             this.colMASACH.VisibleIndex = 1;
             this.colMASACH.Width = 94;
             // 
             // colMATINHTRANG
             // 
+            this.colMATINHTRANG.Caption = "TÌNH TRẠNG";
             this.colMATINHTRANG.FieldName = "MATINHTRANG";
             this.colMATINHTRANG.MinWidth = 25;
             this.colMATINHTRANG.Name = "colMATINHTRANG";
+            this.colMATINHTRANG.OptionsColumn.AllowEdit = false;
+            this.colMATINHTRANG.OptionsColumn.AllowFocus = false;
             this.colMATINHTRANG.Visible = true;
             this.colMATINHTRANG.VisibleIndex = 2;
             this.colMATINHTRANG.Width = 94;
             // 
             // colHANTRA
             // 
+            this.colHANTRA.Caption = "HẠN TRẢ";
             this.colHANTRA.FieldName = "HANTRA";
             this.colHANTRA.MinWidth = 25;
             this.colHANTRA.Name = "colHANTRA";
+            this.colHANTRA.OptionsColumn.AllowEdit = false;
+            this.colHANTRA.OptionsColumn.AllowFocus = false;
             this.colHANTRA.Visible = true;
             this.colHANTRA.VisibleIndex = 3;
             this.colHANTRA.Width = 94;
             // 
             // colGHICHU
             // 
+            this.colGHICHU.Caption = "GHI CHÚ";
             this.colGHICHU.FieldName = "GHICHU";
             this.colGHICHU.MinWidth = 25;
             this.colGHICHU.Name = "colGHICHU";
+            this.colGHICHU.OptionsColumn.AllowEdit = false;
+            this.colGHICHU.OptionsColumn.AllowFocus = false;
             this.colGHICHU.Visible = true;
             this.colGHICHU.VisibleIndex = 4;
             this.colGHICHU.Width = 94;
@@ -685,52 +759,9 @@ namespace THUVIEN
             this.btnHuyCT.Text = "Huỷ";
             this.btnHuyCT.Click += new System.EventHandler(this.btnHuyCT_Click);
             // 
-            // mATINHTRANGLabel
-            // 
-            mATINHTRANGLabel.AutoSize = true;
-            mATINHTRANGLabel.Location = new System.Drawing.Point(289, 261);
-            mATINHTRANGLabel.Name = "mATINHTRANGLabel";
-            mATINHTRANGLabel.Size = new System.Drawing.Size(47, 17);
-            mATINHTRANGLabel.TabIndex = 17;
-            mATINHTRANGLabel.Text = "MATT:";
-            // 
-            // txtMaTT
-            // 
-            this.txtMaTT.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsCTPM, "MATINHTRANG", true));
-            this.txtMaTT.Enabled = false;
-            this.txtMaTT.Location = new System.Drawing.Point(346, 258);
-            this.txtMaTT.Name = "txtMaTT";
-            this.txtMaTT.Size = new System.Drawing.Size(154, 23);
-            this.txtMaTT.TabIndex = 18;
-            // 
-            // bdsTT
-            // 
-            this.bdsTT.DataMember = "TINHTRANG";
-            this.bdsTT.DataSource = this.DS;
-            // 
             // tINHTRANGTableAdapter
             // 
             this.tINHTRANGTableAdapter.ClearBeforeFill = true;
-            // 
-            // tINHTRANGLabel
-            // 
-            tINHTRANGLabel.AutoSize = true;
-            tINHTRANGLabel.Location = new System.Drawing.Point(34, 261);
-            tINHTRANGLabel.Name = "tINHTRANGLabel";
-            tINHTRANGLabel.Size = new System.Drawing.Size(86, 17);
-            tINHTRANGLabel.TabIndex = 19;
-            tINHTRANGLabel.Text = "TINHTRANG:";
-            // 
-            // cmbTinhTrang
-            // 
-            this.cmbTinhTrang.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsTT, "TINHTRANG", true));
-            this.cmbTinhTrang.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.bdsCTPM, "MATINHTRANG", true));
-            this.cmbTinhTrang.FormattingEnabled = true;
-            this.cmbTinhTrang.Location = new System.Drawing.Point(126, 258);
-            this.cmbTinhTrang.Name = "cmbTinhTrang";
-            this.cmbTinhTrang.Size = new System.Drawing.Size(121, 24);
-            this.cmbTinhTrang.TabIndex = 20;
-            this.cmbTinhTrang.SelectedIndexChanged += new System.EventHandler(this.cmbTinhTrang_SelectedIndexChanged);
             // 
             // frmPhieuMuon
             // 
@@ -758,8 +789,9 @@ namespace THUVIEN
             ((System.ComponentModel.ISupportInitialize)(this.panelInput)).EndInit();
             this.panelInput.ResumeLayout(false);
             this.panelInput.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsTT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsCTPM)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtGhiChu.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHanTra.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtHanTra.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.separatorControl1)).EndInit();
@@ -769,7 +801,6 @@ namespace THUVIEN
             ((System.ComponentModel.ISupportInitialize)(this.gcCTPM)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.bdsTT)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
