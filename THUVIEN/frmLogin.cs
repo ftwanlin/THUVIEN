@@ -30,6 +30,11 @@ namespace THUVIEN
 
         private void btnLogin_OK_Click(object sender, EventArgs e)
         {
+            if (txtPassword.Text == "" || txtUsername.Text == "")
+            {
+                MessageBox.Show("Tài khoản hoặc mật khẩu không được để trống!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             Program.mlogin = txtUsername.Text;
             Program.password = txtPassword.Text;
             if (Program.KetNoi() == 0) return;

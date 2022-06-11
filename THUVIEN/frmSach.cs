@@ -100,6 +100,12 @@ namespace THUVIEN
             bdsSach.AddNew();
             
             txtMaSach.Enabled = false;
+            cmbNhaXuatBan.SelectedIndex = 0;
+            cmbTacGia.SelectedIndex = 0;
+            cmbTheLoai.SelectedIndex = 0;
+            seSoLuongSach.Text = "1";
+            seSoLuongHienTai.Text = "1";
+
 
             btnThem.Enabled = btnHieuChinh.Enabled = btnThoat.Enabled = btnReload.Enabled = btnXoa.Enabled = false;
             btnLuu.Enabled = btnPhucHoi.Enabled = true;
@@ -349,6 +355,12 @@ namespace THUVIEN
                 errorProvider.SetError(seSoLuongSach, "Số lượng không được để trống!");
                 seSoLuongSach.Focus();
             }
+            else if (seSoLuongSach.Value < 0)
+            {
+                e.Cancel = true;
+                errorProvider.SetError(seSoLuongSach, "Số lượng sách không được nhỏ hơn 0!");
+                seSoLuongSach.Focus();
+            }
             else
             {
                 e.Cancel = false;
@@ -356,5 +368,30 @@ namespace THUVIEN
             }
         }
 
+        private void seSoLuongHienTai_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(seSoLuongHienTai.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(seSoLuongHienTai, "Số lượng không được để trống!");
+                seSoLuongHienTai.Focus();
+            }
+            else if (seSoLuongHienTai.Value < 0)
+            {
+                e.Cancel = true;
+                errorProvider.SetError(seSoLuongHienTai, "Số lượng hiện tại không được nhỏ hơn 0!");
+                seSoLuongHienTai.Focus();
+            }
+            else if (seSoLuongHienTai.Value > seSoLuongSach.Value) {
+                e.Cancel = true;
+                errorProvider.SetError(seSoLuongHienTai, "Số lượng hiện tại không được lớn hơn số lượng sách!");
+                seSoLuongHienTai.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(seSoLuongHienTai, "");
+            }
+        }
     }
 }

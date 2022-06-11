@@ -179,5 +179,20 @@ namespace THUVIEN
             btnLuu.Enabled = btnPhucHoi.Enabled = false;
             if (bdsTacGia.Count == 0) btnXoa.Enabled = false;
         }
+
+        private void txtTenTacGia_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtTenTacGia.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtTenTacGia, "Tên tác giả không được để trống!");
+                txtTenTacGia.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider1.SetError(txtTenTacGia, "");
+            }
+        }
     }
 }

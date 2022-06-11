@@ -239,5 +239,110 @@ namespace THUVIEN
             btnLuu.Enabled = btnPhucHoi.Enabled = false;
             if (bdsDocGia.Count == 0) btnXoa.Enabled = false;
         }
+
+        private void txtMaThe_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtMaThe.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtMaThe, "Mã thẻ không được để trống!");
+                txtMaThe.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtMaThe, "");
+            }
+        }
+
+        private void txtTenDocGia_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtTenDocGia.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtTenDocGia, "Tên độc giả không được để trống!");
+                txtTenDocGia.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtTenDocGia, "");
+            }
+        }
+
+        private void deNgaySinh_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(deNgaySinh.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(deNgaySinh, "Mã thẻ không được để trống!");
+                deNgaySinh.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(deNgaySinh, "");
+            }
+        }
+
+        private void txtCCCD_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtCCCD.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtCCCD, "CCCD không được để trống!");
+                txtCCCD.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtCCCD, "");
+            }
+        }
+
+        private void txtSDT_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtSDT.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtSDT, "Số điện thoại không được để trống!");
+                txtSDT.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtSDT, "");
+            }
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtEmail.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtEmail, "Email không được để trống!");
+                txtEmail.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtEmail, "");
+            }
+        }
+
+        private void txtDiaChi_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtDiaChi.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtDiaChi, "Địa chỉ không được để trống!");
+                txtDiaChi.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtDiaChi, "");
+            }
+        }
     }
 }

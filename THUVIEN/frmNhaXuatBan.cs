@@ -183,5 +183,51 @@ namespace THUVIEN
             btnLuu.Enabled = btnPhucHoi.Enabled = false;
             if (bdsNXB.Count == 0) btnXoa.Enabled = false;
         }
+
+        private void txtTenNXB_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtTenNXB.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtTenNXB, "Tên NXB không được để trống!");
+                txtTenNXB.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtTenNXB, "");
+            }
+        }
+
+        private void txtSDT_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtSDT.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtSDT, "Tên NXB không được để trống!");
+                txtSDT.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtSDT, "");
+            }
+        }
+
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtEmail.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtEmail, "Tên NXB không được để trống!");
+                txtEmail.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtEmail, "");
+            }
+        }
+
     }
 }

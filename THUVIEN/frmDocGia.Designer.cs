@@ -80,6 +80,7 @@ namespace THUVIEN
             this.txtTenDocGia = new DevExpress.XtraEditors.TextEdit();
             this.txtMaThe = new DevExpress.XtraEditors.TextEdit();
             this.txtMaDocGia = new DevExpress.XtraEditors.TextEdit();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             mADOCGIALabel = new System.Windows.Forms.Label();
             mATHELabel = new System.Windows.Forms.Label();
             tENDOCGIALabel = new System.Windows.Forms.Label();
@@ -105,6 +106,7 @@ namespace THUVIEN
             ((System.ComponentModel.ISupportInitialize)(this.txtTenDocGia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaThe.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaDocGia.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // mADOCGIALabel
@@ -376,10 +378,10 @@ namespace THUVIEN
             // 
             this.gcDocGia.DataSource = this.bdsDocGia;
             this.gcDocGia.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gcDocGia.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcDocGia.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gcDocGia.Location = new System.Drawing.Point(0, 30);
             this.gcDocGia.MainView = this.gridView1;
-            this.gcDocGia.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcDocGia.Margin = new System.Windows.Forms.Padding(4);
             this.gcDocGia.MenuManager = this.barManager1;
             this.gcDocGia.Name = "gcDocGia";
             this.gcDocGia.Size = new System.Drawing.Size(1033, 350);
@@ -549,6 +551,7 @@ namespace THUVIEN
             this.txtDiaChi.Size = new System.Drawing.Size(336, 26);
             this.txtDiaChi.TabIndex = 17;
             this.txtDiaChi.EditValueChanged += new System.EventHandler(this.dIACHITextEdit_EditValueChanged);
+            this.txtDiaChi.Validating += new System.ComponentModel.CancelEventHandler(this.txtDiaChi_Validating);
             // 
             // txtEmail
             // 
@@ -561,6 +564,7 @@ namespace THUVIEN
             this.txtEmail.Size = new System.Drawing.Size(194, 26);
             this.txtEmail.TabIndex = 15;
             this.txtEmail.EditValueChanged += new System.EventHandler(this.eMAILTextEdit_EditValueChanged);
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // txtSDT
             // 
@@ -573,6 +577,7 @@ namespace THUVIEN
             this.txtSDT.Size = new System.Drawing.Size(125, 26);
             this.txtSDT.TabIndex = 13;
             this.txtSDT.EditValueChanged += new System.EventHandler(this.sDTTextEdit_EditValueChanged);
+            this.txtSDT.Validating += new System.ComponentModel.CancelEventHandler(this.txtSDT_Validating);
             // 
             // txtCCCD
             // 
@@ -585,6 +590,7 @@ namespace THUVIEN
             this.txtCCCD.Size = new System.Drawing.Size(125, 26);
             this.txtCCCD.TabIndex = 11;
             this.txtCCCD.EditValueChanged += new System.EventHandler(this.cCCDTextEdit_EditValueChanged);
+            this.txtCCCD.Validating += new System.ComponentModel.CancelEventHandler(this.txtCCCD_Validating);
             // 
             // checkGioiTinh
             // 
@@ -611,6 +617,7 @@ namespace THUVIEN
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.deNgaySinh.Size = new System.Drawing.Size(125, 26);
             this.deNgaySinh.TabIndex = 7;
+            this.deNgaySinh.Validating += new System.ComponentModel.CancelEventHandler(this.deNgaySinh_Validating);
             // 
             // txtTenDocGia
             // 
@@ -623,6 +630,7 @@ namespace THUVIEN
             this.txtTenDocGia.Size = new System.Drawing.Size(199, 26);
             this.txtTenDocGia.TabIndex = 5;
             this.txtTenDocGia.EditValueChanged += new System.EventHandler(this.tENDOCGIATextEdit_EditValueChanged);
+            this.txtTenDocGia.Validating += new System.ComponentModel.CancelEventHandler(this.txtTenDocGia_Validating);
             // 
             // txtMaThe
             // 
@@ -635,6 +643,7 @@ namespace THUVIEN
             this.txtMaThe.Size = new System.Drawing.Size(45, 26);
             this.txtMaThe.TabIndex = 3;
             this.txtMaThe.EditValueChanged += new System.EventHandler(this.mATHETextEdit_EditValueChanged);
+            this.txtMaThe.Validating += new System.ComponentModel.CancelEventHandler(this.txtMaThe_Validating);
             // 
             // txtMaDocGia
             // 
@@ -647,6 +656,10 @@ namespace THUVIEN
             this.txtMaDocGia.Size = new System.Drawing.Size(40, 26);
             this.txtMaDocGia.TabIndex = 1;
             this.txtMaDocGia.EditValueChanged += new System.EventHandler(this.mADOCGIATextEdit_EditValueChanged);
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // frmDocGia
             // 
@@ -679,6 +692,7 @@ namespace THUVIEN
             ((System.ComponentModel.ISupportInitialize)(this.txtTenDocGia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaThe.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaDocGia.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -726,5 +740,6 @@ namespace THUVIEN
         private DevExpress.XtraGrid.Columns.GridColumn colSDT;
         private DevExpress.XtraGrid.Columns.GridColumn colEMAIL;
         private DevExpress.XtraGrid.Columns.GridColumn colDIACHI;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

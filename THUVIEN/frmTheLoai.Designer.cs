@@ -61,6 +61,7 @@ namespace THUVIEN
             this.txtMaTheLoai = new DevExpress.XtraEditors.TextEdit();
             this.bdsSach = new System.Windows.Forms.BindingSource(this.components);
             this.sACHTableAdapter = new THUVIEN.QUANLYTHUVIENDataSetTableAdapters.SACHTableAdapter();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             mATHELOAILabel = new System.Windows.Forms.Label();
             tENTHELOAILabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
@@ -72,6 +73,7 @@ namespace THUVIEN
             ((System.ComponentModel.ISupportInitialize)(this.txtTenTheLoai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaTheLoai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSach)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // mATHELOAILabel
@@ -273,10 +275,10 @@ namespace THUVIEN
             // 
             this.gcTheLoai.DataSource = this.bdsTheLoai;
             this.gcTheLoai.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gcTheLoai.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcTheLoai.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(4);
             this.gcTheLoai.Location = new System.Drawing.Point(0, 30);
             this.gcTheLoai.MainView = this.gridView1;
-            this.gcTheLoai.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gcTheLoai.Margin = new System.Windows.Forms.Padding(4);
             this.gcTheLoai.MenuManager = this.barManager1;
             this.gcTheLoai.Name = "gcTheLoai";
             this.gcTheLoai.Size = new System.Drawing.Size(1142, 338);
@@ -339,6 +341,7 @@ namespace THUVIEN
             this.txtTenTheLoai.Properties.Appearance.Options.UseFont = true;
             this.txtTenTheLoai.Size = new System.Drawing.Size(222, 26);
             this.txtTenTheLoai.TabIndex = 3;
+            this.txtTenTheLoai.Validating += new System.ComponentModel.CancelEventHandler(this.txtTenTheLoai_Validating);
             // 
             // txtMaTheLoai
             // 
@@ -359,6 +362,10 @@ namespace THUVIEN
             // sACHTableAdapter
             // 
             this.sACHTableAdapter.ClearBeforeFill = true;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // frmTheLoai
             // 
@@ -384,6 +391,7 @@ namespace THUVIEN
             ((System.ComponentModel.ISupportInitialize)(this.txtTenTheLoai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaTheLoai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSach)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -419,5 +427,6 @@ namespace THUVIEN
         private DevExpress.XtraGrid.Columns.GridColumn colTENTHELOAI;
         private System.Windows.Forms.BindingSource bdsSach;
         private QUANLYTHUVIENDataSetTableAdapters.SACHTableAdapter sACHTableAdapter;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

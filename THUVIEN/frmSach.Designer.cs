@@ -661,6 +661,7 @@ namespace THUVIEN
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.seSoLuongHienTai.Size = new System.Drawing.Size(88, 26);
             this.seSoLuongHienTai.TabIndex = 48;
+            this.seSoLuongHienTai.Validating += new System.ComponentModel.CancelEventHandler(this.seSoLuongHienTai_Validating);
             // 
             // txtTomTat
             // 

@@ -31,6 +31,11 @@ namespace THUVIEN
                 MessageBox.Show("Mật khẩu không trùng khớp!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (txtPassword1.Text == "" || txtPassword2.Text == "")
+            {
+                MessageBox.Show("Mật khẩu không được để trống", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             String sql = "ALTER LOGIN " + Program.mlogin + "\nWITH PASSWORD = '" + txtPassword1.Text + "'";
             String sql2 = "UPDATE TAIKHOAN SET MATKHAU = '" + txtPassword1.Text + "' WHERE TENDANGNHAP = '" + Program.mlogin + "'";
             conn.ConnectionString = Program.conn_publisher;

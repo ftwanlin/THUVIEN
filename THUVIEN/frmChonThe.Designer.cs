@@ -101,9 +101,12 @@ namespace THUVIEN
             // 
             // colMATHE
             // 
+            this.colMATHE.Caption = "MÃ THẺ";
             this.colMATHE.FieldName = "MATHE";
             this.colMATHE.MinWidth = 25;
             this.colMATHE.Name = "colMATHE";
+            this.colMATHE.OptionsColumn.AllowEdit = false;
+            this.colMATHE.OptionsColumn.AllowFocus = false;
             this.colMATHE.OptionsColumn.ReadOnly = true;
             this.colMATHE.Visible = true;
             this.colMATHE.VisibleIndex = 0;
@@ -111,9 +114,12 @@ namespace THUVIEN
             // 
             // colNGAYCAP
             // 
+            this.colNGAYCAP.Caption = "NGÀY CẤP";
             this.colNGAYCAP.FieldName = "NGAYCAP";
             this.colNGAYCAP.MinWidth = 25;
             this.colNGAYCAP.Name = "colNGAYCAP";
+            this.colNGAYCAP.OptionsColumn.AllowEdit = false;
+            this.colNGAYCAP.OptionsColumn.AllowFocus = false;
             this.colNGAYCAP.OptionsColumn.ReadOnly = true;
             this.colNGAYCAP.Visible = true;
             this.colNGAYCAP.VisibleIndex = 1;
@@ -121,9 +127,12 @@ namespace THUVIEN
             // 
             // colHSD
             // 
+            this.colHSD.Caption = "HẠN SỬ DỤNG";
             this.colHSD.FieldName = "HSD";
             this.colHSD.MinWidth = 25;
             this.colHSD.Name = "colHSD";
+            this.colHSD.OptionsColumn.AllowEdit = false;
+            this.colHSD.OptionsColumn.AllowFocus = false;
             this.colHSD.OptionsColumn.ReadOnly = true;
             this.colHSD.Visible = true;
             this.colHSD.VisibleIndex = 2;
@@ -158,7 +167,7 @@ namespace THUVIEN
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tHETHUVIENGridControl);
             this.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmChonThe";
             this.Text = "frmChonThe";
             this.Load += new System.EventHandler(this.frmChonThe_Load);

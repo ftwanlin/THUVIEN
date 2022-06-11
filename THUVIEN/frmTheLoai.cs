@@ -177,5 +177,20 @@ namespace THUVIEN
             btnLuu.Enabled = btnPhucHoi.Enabled = false;
             if (bdsTheLoai.Count == 0) btnXoa.Enabled = false;
         }
+
+        private void txtTenTheLoai_Validating(object sender, CancelEventArgs e)
+        {
+            if (String.IsNullOrEmpty(txtTenTheLoai.Text))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(txtTenTheLoai, "Tên thể loại không được để trống!");
+                txtTenTheLoai.Focus();
+            }
+            else
+            {
+                e.Cancel = false;
+                errorProvider.SetError(txtTenTheLoai, "");
+            }
+        }
     }
 }

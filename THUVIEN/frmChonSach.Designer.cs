@@ -38,7 +38,6 @@ namespace THUVIEN
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.colMASACH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTENSACH = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.colANHSACH = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colNAMXB = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colGIA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colSOLUONGDAUSACH = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -99,7 +98,6 @@ namespace THUVIEN
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMASACH,
             this.colTENSACH,
-            this.colANHSACH,
             this.colNAMXB,
             this.colGIA,
             this.colSOLUONGDAUSACH,
@@ -109,9 +107,12 @@ namespace THUVIEN
             // 
             // colMASACH
             // 
+            this.colMASACH.Caption = "MÃ SÁCH";
             this.colMASACH.FieldName = "MASACH";
             this.colMASACH.MinWidth = 25;
             this.colMASACH.Name = "colMASACH";
+            this.colMASACH.OptionsColumn.AllowEdit = false;
+            this.colMASACH.OptionsColumn.AllowFocus = false;
             this.colMASACH.OptionsColumn.ReadOnly = true;
             this.colMASACH.Visible = true;
             this.colMASACH.VisibleIndex = 0;
@@ -119,62 +120,67 @@ namespace THUVIEN
             // 
             // colTENSACH
             // 
+            this.colTENSACH.Caption = "TÊN SÁCH";
             this.colTENSACH.FieldName = "TENSACH";
             this.colTENSACH.MinWidth = 25;
             this.colTENSACH.Name = "colTENSACH";
+            this.colTENSACH.OptionsColumn.AllowEdit = false;
+            this.colTENSACH.OptionsColumn.AllowFocus = false;
             this.colTENSACH.OptionsColumn.ReadOnly = true;
             this.colTENSACH.Visible = true;
             this.colTENSACH.VisibleIndex = 1;
             this.colTENSACH.Width = 94;
             // 
-            // colANHSACH
-            // 
-            this.colANHSACH.FieldName = "ANHSACH";
-            this.colANHSACH.MinWidth = 25;
-            this.colANHSACH.Name = "colANHSACH";
-            this.colANHSACH.OptionsColumn.ReadOnly = true;
-            this.colANHSACH.Visible = true;
-            this.colANHSACH.VisibleIndex = 2;
-            this.colANHSACH.Width = 94;
-            // 
             // colNAMXB
             // 
+            this.colNAMXB.Caption = "NĂM XUẤT BẢN";
             this.colNAMXB.FieldName = "NAMXB";
             this.colNAMXB.MinWidth = 25;
             this.colNAMXB.Name = "colNAMXB";
+            this.colNAMXB.OptionsColumn.AllowEdit = false;
+            this.colNAMXB.OptionsColumn.AllowFocus = false;
             this.colNAMXB.OptionsColumn.ReadOnly = true;
             this.colNAMXB.Visible = true;
-            this.colNAMXB.VisibleIndex = 3;
+            this.colNAMXB.VisibleIndex = 2;
             this.colNAMXB.Width = 94;
             // 
             // colGIA
             // 
+            this.colGIA.Caption = "GIÁ";
             this.colGIA.FieldName = "GIA";
             this.colGIA.MinWidth = 25;
             this.colGIA.Name = "colGIA";
+            this.colGIA.OptionsColumn.AllowEdit = false;
+            this.colGIA.OptionsColumn.AllowFocus = false;
             this.colGIA.OptionsColumn.ReadOnly = true;
             this.colGIA.Visible = true;
-            this.colGIA.VisibleIndex = 4;
+            this.colGIA.VisibleIndex = 3;
             this.colGIA.Width = 94;
             // 
             // colSOLUONGDAUSACH
             // 
+            this.colSOLUONGDAUSACH.Caption = "SỐ LƯỢNG ĐẦU SÁCH";
             this.colSOLUONGDAUSACH.FieldName = "SOLUONGDAUSACH";
             this.colSOLUONGDAUSACH.MinWidth = 25;
             this.colSOLUONGDAUSACH.Name = "colSOLUONGDAUSACH";
+            this.colSOLUONGDAUSACH.OptionsColumn.AllowEdit = false;
+            this.colSOLUONGDAUSACH.OptionsColumn.AllowFocus = false;
             this.colSOLUONGDAUSACH.OptionsColumn.ReadOnly = true;
             this.colSOLUONGDAUSACH.Visible = true;
-            this.colSOLUONGDAUSACH.VisibleIndex = 5;
+            this.colSOLUONGDAUSACH.VisibleIndex = 4;
             this.colSOLUONGDAUSACH.Width = 94;
             // 
             // colSOLUONGHIENTAI
             // 
+            this.colSOLUONGHIENTAI.Caption = "SỐ LƯỢNG HIỆN TẠI";
             this.colSOLUONGHIENTAI.FieldName = "SOLUONGHIENTAI";
             this.colSOLUONGHIENTAI.MinWidth = 25;
             this.colSOLUONGHIENTAI.Name = "colSOLUONGHIENTAI";
+            this.colSOLUONGHIENTAI.OptionsColumn.AllowEdit = false;
+            this.colSOLUONGHIENTAI.OptionsColumn.AllowFocus = false;
             this.colSOLUONGHIENTAI.OptionsColumn.ReadOnly = true;
             this.colSOLUONGHIENTAI.Visible = true;
-            this.colSOLUONGHIENTAI.VisibleIndex = 6;
+            this.colSOLUONGHIENTAI.VisibleIndex = 5;
             this.colSOLUONGHIENTAI.Width = 94;
             // 
             // button1
@@ -206,7 +212,7 @@ namespace THUVIEN
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gcSach);
             this.Font = new System.Drawing.Font("Times New Roman", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmChonSach";
             this.Text = "frmChonSach";
             this.Load += new System.EventHandler(this.frmChonSach_Load);
@@ -228,7 +234,6 @@ namespace THUVIEN
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private DevExpress.XtraGrid.Columns.GridColumn colMASACH;
         private DevExpress.XtraGrid.Columns.GridColumn colTENSACH;
-        private DevExpress.XtraGrid.Columns.GridColumn colANHSACH;
         private DevExpress.XtraGrid.Columns.GridColumn colNAMXB;
         private DevExpress.XtraGrid.Columns.GridColumn colGIA;
         private DevExpress.XtraGrid.Columns.GridColumn colSOLUONGDAUSACH;

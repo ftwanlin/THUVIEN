@@ -32,8 +32,8 @@ namespace THUVIEN
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label mATACGIALabel;
             System.Windows.Forms.Label tENTACGIALabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTacGia));
             System.Windows.Forms.Label tIEUSULabel;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTacGia));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.btnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -59,11 +59,12 @@ namespace THUVIEN
             this.colTENTACGIA = new DevExpress.XtraGrid.Columns.GridColumn();
             this.colTIEUSU = new DevExpress.XtraGrid.Columns.GridColumn();
             this.panelControl_TacGia = new System.Windows.Forms.Panel();
+            this.txtTieuSu = new System.Windows.Forms.TextBox();
             this.txtTenTacGia = new DevExpress.XtraEditors.TextEdit();
             this.txtMaTacGia = new DevExpress.XtraEditors.TextEdit();
             this.bdsSach = new System.Windows.Forms.BindingSource(this.components);
             this.sACHTableAdapter = new THUVIEN.QUANLYTHUVIENDataSetTableAdapters.SACHTableAdapter();
-            this.txtTieuSu = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             mATACGIALabel = new System.Windows.Forms.Label();
             tENTACGIALabel = new System.Windows.Forms.Label();
             tIEUSULabel = new System.Windows.Forms.Label();
@@ -76,6 +77,7 @@ namespace THUVIEN
             ((System.ComponentModel.ISupportInitialize)(this.txtTenTacGia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaTacGia.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSach)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // mATACGIALabel
@@ -97,6 +99,16 @@ namespace THUVIEN
             tENTACGIALabel.Size = new System.Drawing.Size(112, 19);
             tENTACGIALabel.TabIndex = 2;
             tENTACGIALabel.Text = "TÊN TÁC GIẢ:";
+            // 
+            // tIEUSULabel
+            // 
+            tIEUSULabel.AutoSize = true;
+            tIEUSULabel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tIEUSULabel.Location = new System.Drawing.Point(67, 132);
+            tIEUSULabel.Name = "tIEUSULabel";
+            tIEUSULabel.Size = new System.Drawing.Size(76, 19);
+            tIEUSULabel.TabIndex = 4;
+            tIEUSULabel.Text = "TIỂU SỬ:";
             // 
             // barManager1
             // 
@@ -345,6 +357,16 @@ namespace THUVIEN
             this.panelControl_TacGia.Size = new System.Drawing.Size(1102, 343);
             this.panelControl_TacGia.TabIndex = 6;
             // 
+            // txtTieuSu
+            // 
+            this.txtTieuSu.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsTacGia, "TIEUSU", true));
+            this.txtTieuSu.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTieuSu.Location = new System.Drawing.Point(164, 129);
+            this.txtTieuSu.Multiline = true;
+            this.txtTieuSu.Name = "txtTieuSu";
+            this.txtTieuSu.Size = new System.Drawing.Size(633, 176);
+            this.txtTieuSu.TabIndex = 5;
+            // 
             // txtTenTacGia
             // 
             this.txtTenTacGia.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.bdsTacGia, "TENTACGIA", true));
@@ -355,6 +377,7 @@ namespace THUVIEN
             this.txtTenTacGia.Properties.Appearance.Options.UseFont = true;
             this.txtTenTacGia.Size = new System.Drawing.Size(173, 26);
             this.txtTenTacGia.TabIndex = 3;
+            this.txtTenTacGia.Validating += new System.ComponentModel.CancelEventHandler(this.txtTenTacGia_Validating);
             // 
             // txtMaTacGia
             // 
@@ -376,25 +399,9 @@ namespace THUVIEN
             // 
             this.sACHTableAdapter.ClearBeforeFill = true;
             // 
-            // tIEUSULabel
+            // errorProvider1
             // 
-            tIEUSULabel.AutoSize = true;
-            tIEUSULabel.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tIEUSULabel.Location = new System.Drawing.Point(67, 132);
-            tIEUSULabel.Name = "tIEUSULabel";
-            tIEUSULabel.Size = new System.Drawing.Size(76, 19);
-            tIEUSULabel.TabIndex = 4;
-            tIEUSULabel.Text = "TIỂU SỬ:";
-            // 
-            // txtTieuSu
-            // 
-            this.txtTieuSu.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.bdsTacGia, "TIEUSU", true));
-            this.txtTieuSu.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTieuSu.Location = new System.Drawing.Point(164, 129);
-            this.txtTieuSu.Multiline = true;
-            this.txtTieuSu.Name = "txtTieuSu";
-            this.txtTieuSu.Size = new System.Drawing.Size(633, 176);
-            this.txtTieuSu.TabIndex = 5;
+            this.errorProvider1.ContainerControl = this;
             // 
             // frmTacGia
             // 
@@ -420,6 +427,7 @@ namespace THUVIEN
             ((System.ComponentModel.ISupportInitialize)(this.txtTenTacGia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaTacGia.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSach)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -457,5 +465,6 @@ namespace THUVIEN
         private System.Windows.Forms.BindingSource bdsSach;
         private QUANLYTHUVIENDataSetTableAdapters.SACHTableAdapter sACHTableAdapter;
         private System.Windows.Forms.TextBox txtTieuSu;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

@@ -70,6 +70,7 @@ namespace THUVIEN
             this.txtMaNXB = new DevExpress.XtraEditors.TextEdit();
             this.bdsSach = new System.Windows.Forms.BindingSource(this.components);
             this.sACHTableAdapter = new THUVIEN.QUANLYTHUVIENDataSetTableAdapters.SACHTableAdapter();
+            this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             mANXBLabel = new System.Windows.Forms.Label();
             tENNXBLabel = new System.Windows.Forms.Label();
             sDTLabel = new System.Windows.Forms.Label();
@@ -87,6 +88,7 @@ namespace THUVIEN
             ((System.ComponentModel.ISupportInitialize)(this.txtTenNXB.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNXB.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSach)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // mANXBLabel
@@ -424,6 +426,7 @@ namespace THUVIEN
             this.txtDiaChi.Name = "txtDiaChi";
             this.txtDiaChi.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDiaChi.Properties.Appearance.Options.UseFont = true;
+            this.txtDiaChi.Properties.MaxLength = 100;
             this.txtDiaChi.Size = new System.Drawing.Size(470, 26);
             this.txtDiaChi.TabIndex = 9;
             // 
@@ -435,8 +438,10 @@ namespace THUVIEN
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.Properties.Appearance.Options.UseFont = true;
+            this.txtEmail.Properties.MaxLength = 40;
             this.txtEmail.Size = new System.Drawing.Size(199, 26);
             this.txtEmail.TabIndex = 7;
+            this.txtEmail.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // txtSDT
             // 
@@ -446,8 +451,10 @@ namespace THUVIEN
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSDT.Properties.Appearance.Options.UseFont = true;
+            this.txtSDT.Properties.MaxLength = 12;
             this.txtSDT.Size = new System.Drawing.Size(132, 26);
             this.txtSDT.TabIndex = 5;
+            this.txtSDT.Validating += new System.ComponentModel.CancelEventHandler(this.txtSDT_Validating);
             // 
             // txtTenNXB
             // 
@@ -457,8 +464,10 @@ namespace THUVIEN
             this.txtTenNXB.Name = "txtTenNXB";
             this.txtTenNXB.Properties.Appearance.Font = new System.Drawing.Font("Times New Roman", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTenNXB.Properties.Appearance.Options.UseFont = true;
+            this.txtTenNXB.Properties.MaxLength = 50;
             this.txtTenNXB.Size = new System.Drawing.Size(268, 26);
             this.txtTenNXB.TabIndex = 3;
+            this.txtTenNXB.Validating += new System.ComponentModel.CancelEventHandler(this.txtTenNXB_Validating);
             // 
             // txtMaNXB
             // 
@@ -479,6 +488,10 @@ namespace THUVIEN
             // sACHTableAdapter
             // 
             this.sACHTableAdapter.ClearBeforeFill = true;
+            // 
+            // errorProvider
+            // 
+            this.errorProvider.ContainerControl = this;
             // 
             // frmNhaXuatBan
             // 
@@ -507,6 +520,7 @@ namespace THUVIEN
             ((System.ComponentModel.ISupportInitialize)(this.txtTenNXB.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaNXB.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSach)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -548,5 +562,6 @@ namespace THUVIEN
         private DevExpress.XtraGrid.Columns.GridColumn colDIACHI;
         private System.Windows.Forms.BindingSource bdsSach;
         private QUANLYTHUVIENDataSetTableAdapters.SACHTableAdapter sACHTableAdapter;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }
