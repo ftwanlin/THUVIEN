@@ -192,6 +192,7 @@ namespace THUVIEN
             ribbonPage_DocGia.Visible = false;
             ribbonPage_NhanVien.Visible = false;
             ribbonPage_SaoLuuPhucHoi.Visible = false;
+            ribbonPage1.Visible = false;
         }
 
         public void HienThiMenu()
@@ -204,6 +205,7 @@ namespace THUVIEN
             ribbonPage_DocGia.Visible = true;
             ribbonPage_NhanVien.Visible = true;
             ribbonPage_SaoLuuPhucHoi.Visible = true;
+            ribbonPage1.Visible = true;
 
             if (Program.mGroup == "NHANVIEN")
             {
@@ -235,6 +237,7 @@ namespace THUVIEN
             ribbonPage_DocGia.Visible = false;
             ribbonPage_NhanVien.Visible = false;
             ribbonPage_SaoLuuPhucHoi.Visible = false;
+            ribbonPage1.Visible = false;
         }
 
         private void btnPhieuMuon_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -257,6 +260,18 @@ namespace THUVIEN
             {
                 frmDoiMatKhau f = new frmDoiMatKhau();
                 //f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void barButtonItem8_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            Form frm = this.CheckExists(typeof(frmrole));
+            if (frm != null) frm.Activate();
+            else
+            {
+                frmrole f = new frmrole();
+                f.MdiParent = this;
                 f.Show();
             }
         }

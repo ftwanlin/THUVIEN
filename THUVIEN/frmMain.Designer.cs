@@ -67,6 +67,13 @@ namespace THUVIEN
             this.ribbonPageGroup13 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup14 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
+            this.ribbonPage2 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.Thaotac = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.rol = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barButtonItem8 = new DevExpress.XtraBars.BarButtonItem();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).BeginInit();
             this.SuspendLayout();
@@ -90,10 +97,14 @@ namespace THUVIEN
             this.btnDangXuat,
             this.btnSaoLuu,
             this.btnPhucHoi,
-            this.btnPhieuMuon});
+            this.btnPhieuMuon,
+            this.Thaotac,
+            this.barButtonItem7,
+            this.rol,
+            this.barButtonItem8});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.ribbonControl1.MaxItemId = 15;
+            this.ribbonControl1.MaxItemId = 19;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage_HeThong,
@@ -101,7 +112,8 @@ namespace THUVIEN
             this.ribbonPage_QuanLySach,
             this.ribbonPage_DocGia,
             this.ribbonPage_NhanVien,
-            this.ribbonPage_SaoLuuPhucHoi});
+            this.ribbonPage_SaoLuuPhucHoi,
+            this.ribbonPage1});
             this.ribbonControl1.Size = new System.Drawing.Size(1053, 193);
             // 
             // btnSach
@@ -256,7 +268,6 @@ namespace THUVIEN
             // 
             this.ribbonPageGroup12.ItemLinks.Add(this.btnPhieuMuon);
             this.ribbonPageGroup12.Name = "ribbonPageGroup12";
-            this.ribbonPageGroup12.Text = "ribbonPageGroup12";
             // 
             // ribbonPage_QuanLySach
             // 
@@ -355,6 +366,48 @@ namespace THUVIEN
             // 
             this.xtraTabbedMdiManager1.MdiParent = this;
             // 
+            // ribbonPage2
+            // 
+            this.ribbonPage2.Name = "ribbonPage2";
+            this.ribbonPage2.Text = "ribbonPage2";
+            // 
+            // Thaotac
+            // 
+            this.Thaotac.Caption = "Thao tác role";
+            this.Thaotac.Id = 15;
+            this.Thaotac.Name = "Thaotac";
+            // 
+            // barButtonItem7
+            // 
+            this.barButtonItem7.Caption = "barButtonItem7";
+            this.barButtonItem7.Id = 16;
+            this.barButtonItem7.Name = "barButtonItem7";
+            // 
+            // rol
+            // 
+            this.rol.Caption = "Thao tác role";
+            this.rol.Id = 17;
+            this.rol.Name = "rol";
+            // 
+            // ribbonPage1
+            // 
+            this.ribbonPage1.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
+            this.ribbonPageGroup15});
+            this.ribbonPage1.Name = "ribbonPage1";
+            this.ribbonPage1.Text = "ROLE";
+            // 
+            // ribbonPageGroup15
+            // 
+            this.ribbonPageGroup15.ItemLinks.Add(this.barButtonItem8);
+            this.ribbonPageGroup15.Name = "ribbonPageGroup15";
+            // 
+            // barButtonItem8
+            // 
+            this.barButtonItem8.Caption = "Thực hiện các thao tác";
+            this.barButtonItem8.Id = 18;
+            this.barButtonItem8.Name = "barButtonItem8";
+            this.barButtonItem8.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem8_ItemClick);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -413,6 +466,13 @@ namespace THUVIEN
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup13;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup14;
         private DevExpress.XtraBars.BarButtonItem btnPhieuMuon;
+        private DevExpress.XtraBars.BarButtonItem Thaotac;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+        private DevExpress.XtraBars.BarButtonItem rol;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage2;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem8;
+        private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage1;
+        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
     }
 }
 

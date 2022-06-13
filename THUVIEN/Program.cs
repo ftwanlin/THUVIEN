@@ -11,7 +11,7 @@ namespace THUVIEN
 {
     static class Program
     {
-        public static String conn_publisher = "Data Source=DESKTOP-0HBRCG9;Initial Catalog=QUANLYTHUVIEN;Integrated Security=true";
+        public static String conn_publisher = "Data Source=DESKTOP-21NSQ5F;Initial Catalog=QUANLYTHUVIEN;Integrated Security=true";
         public static SqlConnection conn = new SqlConnection();
         public static String connstr;
 
@@ -38,7 +38,7 @@ namespace THUVIEN
                 Program.conn.Close();
             try
             {
-                Program.connstr = "Data Source=DESKTOP-0HBRCG9" + ";Initial Catalog=" +
+                Program.connstr = "Data Source=DESKTOP-21NSQ5F" + ";Initial Catalog=" +
                       Program.database + ";User ID=" +
                       Program.mlogin + ";password=" + Program.password;
                 Program.conn.ConnectionString = Program.connstr;
