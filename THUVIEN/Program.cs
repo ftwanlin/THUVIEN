@@ -6,6 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data;
+using DevExpress.XtraEditors;
 
 namespace THUVIEN
 {
@@ -54,6 +55,27 @@ namespace THUVIEN
             }
         }
 
+        public static int ExecSqlNonQuery(String strlenh)
+        {
+            SqlCommand Sqlcmd = new SqlCommand(strlenh,conn);
+            Sqlcmd.CommandType = CommandType.Text;
+            Sqlcmd.CommandTimeout = 600;// 10 phut
+            if (conn.State == ConnectionState.Closed) conn.Open();
+            try
+            {
+                Sqlcmd.ExecuteNonQuery();
+                conn.Close();
+                return 0;
+            }
+            catch (SqlException ex)
+            {
+                XtraMessageBox.Show(ex.Message, "Error Message",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                conn.Close();
+                return ex.State;
+
+            }
+        }
         public static SqlDataReader ExecSqlDataReader(String strLenh)
         {
             SqlDataReader myreader;
@@ -83,7 +105,20 @@ namespace THUVIEN
             conn.Close();
             return dt;
         }
+        public static int CheckDataHelper(String query)
+        {
+            SqlDataReader dataReader = Program.ExecSqlDataReader(query);
 
+            // nếu null thì thoát luôn  ==> lỗi kết nối
+            if (dataReader == null)
+            {
+                return -1;
+            }
+            dataReader.Read();
+            int result = int.Parse(dataReader.GetValue(0).ToString());
+            dataReader.Close();
+            return result;
+        }
         public static int ExecSqlKiemTra1(String tenSP, String a)
         {
             String sql = "DECLARE @return_value int " +
