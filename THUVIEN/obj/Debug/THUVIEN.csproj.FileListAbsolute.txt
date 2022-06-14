@@ -202,3 +202,5 @@ C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmPh
 C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmChonThe.resources
 C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmChonSach.resources
 C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmDoiMatKhau.resources
+C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmPhucHoi.resources
+C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmSaoLuu.resources

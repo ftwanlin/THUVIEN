@@ -256,7 +256,6 @@ namespace THUVIEN
             // 
             this.ribbonPageGroup12.ItemLinks.Add(this.btnPhieuMuon);
             this.ribbonPageGroup12.Name = "ribbonPageGroup12";
-            this.ribbonPageGroup12.Text = "ribbonPageGroup12";
             // 
             // ribbonPage_QuanLySach
             // 
@@ -349,7 +348,6 @@ namespace THUVIEN
             // 
             this.ribbonPageGroup14.ItemLinks.Add(this.btnPhucHoi);
             this.ribbonPageGroup14.Name = "ribbonPageGroup14";
-            this.ribbonPageGroup14.Text = "";
             // 
             // xtraTabbedMdiManager1
             // 

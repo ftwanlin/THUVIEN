@@ -124,7 +124,6 @@ namespace THUVIEN
                 {
                     try
                     {
-                        MessageBox.Show(txtMaNV.Text);
                         bdsNV.EndEdit();
                         bdsNV.ResetCurrentItem();
                         this.nHANVIENTableAdapter.Connection.ConnectionString = Program.connstr;
