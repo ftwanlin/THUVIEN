@@ -104,7 +104,8 @@ namespace THUVIEN
             cmbTacGia.SelectedIndex = 0;
             cmbTheLoai.SelectedIndex = 0;
             seSoLuongSach.Text = "1";
-            seSoLuongHienTai.Text = "1";
+            seSoLuongHienTai.Enabled = false;
+            //seSoLuongHienTai.Text = "1";
 
 
             btnThem.Enabled = btnHieuChinh.Enabled = btnThoat.Enabled = btnReload.Enabled = btnXoa.Enabled = false;
@@ -117,6 +118,7 @@ namespace THUVIEN
             index = bdsSach.Position;
             panelControl_Sach.Enabled = true;
             txtMaSach.Enabled = false;
+            seSoLuongHienTai.Enabled = true;
 
             btnThem.Enabled = btnHieuChinh.Enabled = btnReload.Enabled = btnThoat.Enabled = btnXoa.Enabled = false;
             btnLuu.Enabled = btnPhucHoi.Enabled = true;
@@ -195,7 +197,7 @@ namespace THUVIEN
                 if (maSach <= 0)
                 {
                     sql = "INSERT INTO SACH(MATHELOAI, MATACGIA, MANXB, TENSACH, NAMXB, GIA, SOLUONGDAUSACH, SOLUONGHIENTAI, TOMTAT) " +
-                        "VALUES(" + cmbTheLoai.SelectedValue + ", " + cmbTacGia.SelectedValue + ", " + cmbNhaXuatBan.SelectedValue + ", N'" + txtTenSach.Text + "', '" + txtNamXuatBan.Text + "', " + seGia.Text + ", " + seSoLuongSach.Text + ", " + seSoLuongHienTai.Text + ", N'" + txtTomTat.Text + "')";
+                        "VALUES(" + cmbTheLoai.SelectedValue + ", " + cmbTacGia.SelectedValue + ", " + cmbNhaXuatBan.SelectedValue + ", N'" + txtTenSach.Text + "', '" + txtNamXuatBan.Text + "', " + seGia.Text + ", " + seSoLuongSach.Text + ", " + seSoLuongSach.Text + ", N'" + txtTomTat.Text + "')";
                 }
                 else sql = "UPDATE SACH\n" +
                         "SET MATHELOAI = " + cmbTheLoai.SelectedValue + ",\n" +

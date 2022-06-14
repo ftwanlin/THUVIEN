@@ -121,7 +121,7 @@ namespace THUVIEN
                 {
                     try
                     {
-                        MessageBox.Show(sql);
+                        //MessageBox.Show(sql);
 
                         conn.ConnectionString = Program.connstr;
                         if (conn.State == ConnectionState.Closed) conn.Open();

@@ -39,12 +39,12 @@ namespace THUVIEN
         {
             if (txtadd.Text.Trim().Equals(""))
             {
-                XtraMessageBox.Show("Bạn chưa điền tên Role !!!", "Lỗi tạo role", MessageBoxButtons.OK);
+                XtraMessageBox.Show("Bạn chưa điền tên Role !", "Lỗi tạo role", MessageBoxButtons.OK);
                 txtadd.Focus();
             }
             else if (listQuyen.SelectedIndex == -1)
             {
-                XtraMessageBox.Show("Bạn chưa chọn quyền cho Role !!!", "Lỗi tạo role", MessageBoxButtons.OK);
+                XtraMessageBox.Show("Bạn chưa chọn quyền cho Role !", "Lỗi tạo role", MessageBoxButtons.OK);
             }
             else
             {

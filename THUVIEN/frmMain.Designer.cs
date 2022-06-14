@@ -438,7 +438,6 @@ namespace THUVIEN
             // 
             this.ribbonPageGroup14.ItemLinks.Add(this.btnPhucHoi);
             this.ribbonPageGroup14.Name = "ribbonPageGroup14";
-            this.ribbonPageGroup14.Text = "";
             // 
             // ribbonPage1
             // 

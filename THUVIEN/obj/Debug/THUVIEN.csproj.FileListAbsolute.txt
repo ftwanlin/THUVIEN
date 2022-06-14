@@ -202,6 +202,7 @@ C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmPh
 C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmChonThe.resources
 C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmChonSach.resources
 C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmDoiMatKhau.resources
+<<<<<<< HEAD
 D:\Source code\C#\THUVIEN\THUVIEN\bin\Debug\THUVIEN.exe.config
 D:\Source code\C#\THUVIEN\THUVIEN\bin\Debug\THUVIEN.exe
 D:\Source code\C#\THUVIEN\THUVIEN\bin\Debug\THUVIEN.pdb
@@ -310,3 +311,9 @@ D:\Source code\C#\THUVIEN\THUVIEN\obj\Debug\THUVIEN.csproj.CopyComplete
 D:\Source code\C#\THUVIEN\THUVIEN\obj\Debug\THUVIEN.exe
 D:\Source code\C#\THUVIEN\THUVIEN\obj\Debug\THUVIEN.pdb
 D:\Source code\C#\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmrole.resources
+=======
+C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmPhucHoi.resources
+C:\Users\taqua\OneDrive\Documents\GitHub\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmSaoLuu.resources
+>>>>>>> ef6d1feb865fa8a922dfd72d9123a8ac0dfa3eb3
+D:\Source code\C#\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmPhucHoi.resources
+D:\Source code\C#\THUVIEN\THUVIEN\obj\Debug\THUVIEN.frmSaoLuu.resources

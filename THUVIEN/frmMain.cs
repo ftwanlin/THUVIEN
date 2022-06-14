@@ -125,45 +125,25 @@ namespace THUVIEN
 
         private void btnSaoLuu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (Program.KetNoi() == 0) return;
-            if (MessageBox.Show("Xác nhận sao lưu dữ liệu?", "Thông báo",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            Form frm = this.CheckExists(typeof(frmSaoLuu));
+            if (frm != null) frm.Activate();
+            else
             {
-                string str = "USE QUANLYTHUVIEN;";
-                string str1 = "BACKUP DATABASE QUANLYTHUVIEN TO DISK = 'D:\\backupQLTV.Bak' WITH FORMAT;";
-                SqlCommand cmd1 = new SqlCommand(str, Program.conn);
-                SqlCommand cmd2 = new SqlCommand(str1, Program.conn);
-                cmd1.ExecuteNonQuery();
-                cmd2.ExecuteNonQuery();
-                MessageBox.Show("Backup thành công, file backup được lưu tại địa chỉ: D:\\backupQLTV.Bak!", "Thông báo", MessageBoxButtons.OK);
+                frmSaoLuu f = new frmSaoLuu();
+                f.ShowDialog();
+
             }
         }
 
         private void btnPhucHoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (Program.KetNoi() == 0) return;
-            if (!File.Exists(@"D:\\backupQLTV.Bak"))
+            Form frm = this.CheckExists(typeof(frmPhucHoi));
+            if (frm != null) frm.Activate();
+            else
             {
-                MessageBox.Show("Chưa có file sao lưu, không thể khôi phục dữ liệu\n Vui lòng sao lưu trước khi khôi phục dữ liệu!");
-                return;
-            }
+                frmPhucHoi f = new frmPhucHoi();
+                f.ShowDialog();
 
-            if (MessageBox.Show("Xác nhận khôi phục dữ liệu?", "Thông báo",
-                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
-            {
-                string str = "USE master;";
-                string str1 = "ALTER DATABASE QUANLYTHUVIEN SET SINGLE_USER WITH ROLLBACK IMMEDIATE;";
-                string str3 = "RESTORE DATABASE QUANLYTHUVIEN FROM DISK = 'D:\\backupQLTV.Bak' WITH REPLACE ";
-                SqlCommand cmd = new SqlCommand(str, Program.conn);
-                SqlCommand cmd1 = new SqlCommand(str1, Program.conn);
-                SqlCommand cmd3 = new SqlCommand(str3, Program.conn);
-                cmd.ExecuteNonQuery();
-                cmd1.ExecuteNonQuery();
-                cmd3.ExecuteNonQuery();
-                MessageBox.Show("Restore thành công, ứng dụng sẽ khởi động lại! ", "Thông báo", MessageBoxButtons.OK);
-                /*con.Close();*/
-                Application.Restart();
-                this.Hide();
             }
         }
 
@@ -228,7 +208,6 @@ namespace THUVIEN
             Program.username = "";
             Program.mHoten = "";
             Program.mGroup = "";
-            //Program.frmChinh.HienThiMenu();
             btnDoiMatKhau.Enabled = false;
             btnDangXuat.Enabled = false;
             btnDangNhap.Enabled = true;

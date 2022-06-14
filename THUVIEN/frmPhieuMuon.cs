@@ -44,7 +44,6 @@ namespace THUVIEN
             this.tINHTRANGTableAdapter.Fill(this.DS.TINHTRANG);
 
             LayDSTinhTrang("SELECT * FROM VIEW_TINHTRANG");
-            spnMaxSoLuong.Enabled = false;
         }
 
         private void LayDSTinhTrang(String cmd)
@@ -222,6 +221,8 @@ namespace THUVIEN
                 return;
             }
 
+
+
             if (txtHanTra.DateTime.Date < txtNgayMuon.DateTime.Date)
             {
                 MessageBox.Show("Ngày trả phải lớn hơn ngày mượn");
@@ -234,23 +235,36 @@ namespace THUVIEN
                 return;
             }
 
-            //int soLuongHienTai = int.Parse(((DataRowView)bdsPhieuMuon[bdsPhieuMuon.Position])["SOLUONGHIENTAI"].ToString().Trim());
+            //int tt = int.Parse(((DataRowView)bdsCTPM[bdsCTPM.Position])["MATINHTRANG"].ToString());
+            //if (tt == 1)
+            //{
+            //    MessageBox.Show("Sách đã trả, không thể đổi trạng thái!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    return;
+            //}
 
             if (MessageBox.Show("Bạn có chắc muốn ghi dữ liệu vào Database?", "Thông báo",
                                MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
-                bdsCTPM.EndEdit();
+                try
+                {
+                    bdsCTPM.EndEdit();
 
-                this.cT_PHIEUMUONTableAdapter.Connection = Program.conn;
-                this.cT_PHIEUMUONTableAdapter.Update(this.DS.CT_PHIEUMUON);
+                    this.cT_PHIEUMUONTableAdapter.Connection = Program.conn;
+                    this.cT_PHIEUMUONTableAdapter.Update(this.DS.CT_PHIEUMUON);
 
-                gcPhieuMuon.Enabled = true;
-                gcCTPM.Enabled = true;
-                btnThemCT.Enabled = btnXoaCT.Enabled = true;
-                btnHuyCT.Enabled = btnChonSach.Enabled = false;
+                    gcPhieuMuon.Enabled = true;
+                    gcCTPM.Enabled = true;
+                    btnThemCT.Enabled = btnXoaCT.Enabled = true;
+                    btnHuyCT.Enabled = btnChonSach.Enabled = false;
 
-                MessageBox.Show("Ghi chi tiết thành công!");
-                cmbTinhTrang.Enabled = true;
+                    MessageBox.Show("Ghi chi tiết thành công!");
+                    cmbTinhTrang.Enabled = true;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Lỗi ghi chi tiết sách!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
             }
         }
@@ -259,6 +273,12 @@ namespace THUVIEN
         {
             try
             {
+                //int tt = int.Parse(((DataRowView)bdsCTPM[bdsCTPM.Position])["MATINHTRANG"].ToString());
+                //if (tt == 1)
+                //{
+                //    MessageBox.Show("Sách đã trả, không thể đổi trạng thái!", "Cảnh báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                //    return;
+                //}
                 txtMaTT.Text = cmbTinhTrang.SelectedValue.ToString();
 
             }
